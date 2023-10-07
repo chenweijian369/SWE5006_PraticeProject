@@ -1,0 +1,16 @@
+nus:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 47.128.76.6
+    port: 3306
+    database: golden_lotus
+    username: root
+    password: 123456
+
+  redis:
+    host: localhost
+    port: 6379
+
+  wechat:
+    appid: wx8e163d873747ccb0
+    secret: 8cb5add0fe5481ceee88212f65363d90
