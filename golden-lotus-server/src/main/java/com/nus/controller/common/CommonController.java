@@ -28,7 +28,7 @@ import java.util.Map;
  * Common Service
  * Done by CHEN WEIJIAN
  */
-public class commonController {
+public class CommonController {
 
     @Autowired
     private CommonService commonService;
