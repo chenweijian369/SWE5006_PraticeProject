@@ -13,8 +13,6 @@ import java.time.LocalDateTime;
  */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Admin extends People {
 
-    private LocalDateTime createTime;
 }

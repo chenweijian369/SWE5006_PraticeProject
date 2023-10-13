@@ -3,9 +3,9 @@ nus:
     driver-class-name: com.mysql.cj.jdbc.Driver
     host: 47.128.76.6
     port: 3306
-    database: golden_lotus
+    database: goldenLotus
     username: root
-    password: 123456
+    password: Golden_lotusmysql
 
   redis:
     host: localhost

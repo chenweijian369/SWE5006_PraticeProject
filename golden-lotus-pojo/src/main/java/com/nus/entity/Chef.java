@@ -19,8 +19,6 @@ public class Chef extends People {
 
     private Integer isOccupied;
 
-    private LocalDateTime createTime;
-
     private LocalDateTime updateTime;
 
     private Long createUser;

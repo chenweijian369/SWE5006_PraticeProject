@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
-@RequestMapping("/common")
-@Api(tags = "Common Relevent Interface")
-@Slf4j
 /**
  * Common Service
  * Done by CHEN WEIJIAN
  */
-public class commonController {
+@RestController
+@RequestMapping("/common")
+@Api(tags = "Common Relevent Interface")
+@Slf4j
+public class CommonController {
 
     @Autowired
     private CommonService commonService;
