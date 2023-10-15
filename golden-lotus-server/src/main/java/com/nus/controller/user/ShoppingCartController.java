@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user/shoppingcart")
 @Slf4j
-@Api(tags = "ShoppingCart Relevent Interface")
+@Api(tags = "ShoppingCart Relevant Interface")
 public class ShoppingCartController {
     @Autowired
     private ShoppingCartService shoppingCartService;

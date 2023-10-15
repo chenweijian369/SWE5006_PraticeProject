@@ -26,7 +26,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/common")
-@Api(tags = "Common Relevent Interface")
+@Api(tags = "Common Relevant Interface")
 @Slf4j
 public class CommonController {
 
