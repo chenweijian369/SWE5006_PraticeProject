@@ -13,6 +13,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Iterator;
 
 /**
  * jwt token interceptor
@@ -47,7 +48,8 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
             log.info("Check JWT: {}", token);
 
             Claims claims = JwtUtil.parseJWT(jwtProperties.getSecretKey(), token);
-            String type = claims.keySet().toString();
+            Iterator<String> iterator = claims.keySet().iterator();
+            String type = iterator.hasNext() ? iterator.next() : null;
 
             if (type.equals(LoginConstant.ADMIN_LOGIN) || type.equals(LoginConstant.USER_LOGIN) || type.equals(LoginConstant.CHEF_LOGIN)){
                 setCurrentUserIdWhenJWT(claims, type);
@@ -65,7 +67,7 @@ public class JwtTokenInterceptor implements HandlerInterceptor {
 
     public void setCurrentUserIdWhenJWT(Claims claims, String type){
         Long id = Long.valueOf(claims.get(type).toString());
-        log.info("Current ID：{}", id);
+        log.info("Current Person ID：{}", id);
         BaseContext.setCurrentId(id);
     }
 
