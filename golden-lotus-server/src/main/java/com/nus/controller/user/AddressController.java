@@ -18,7 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user/address")
 @Slf4j
-@Api(tags = "Address Relevent Interface")
+@Api(tags = "Address Relevant Interface")
 public class AddressController {
     @Autowired
     private AddressService addressService;
