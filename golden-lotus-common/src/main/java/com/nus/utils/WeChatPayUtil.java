@@ -44,6 +44,8 @@ public class WeChatPayUtil {
     @Autowired
     private WeChatProperties weChatProperties;
 
+
+
     /**
      * 获取调用微信接口的客户端工具对象
      *
