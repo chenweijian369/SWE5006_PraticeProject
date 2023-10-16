@@ -1,4 +1,4 @@
-package com.nus.entity;
+package com.nus.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,13 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-/**
- * Done by CHEN WEIJIAN
- */
 @Data
+@Builder
 @NoArgsConstructor
-public class User extends People {
+@AllArgsConstructor
+public class ShoppingCartDTO implements Serializable {
+
+    private Long chefId;
+
+    private Long dishId;
 
 }

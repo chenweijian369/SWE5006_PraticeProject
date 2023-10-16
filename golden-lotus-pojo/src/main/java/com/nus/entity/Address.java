@@ -6,29 +6,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class People implements Serializable {
+public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    private String username;
+    private Long userId;
 
-    private String name;
-
-    private String password;
+    private String consignee;
 
     private String phone;
 
     private String sex;
 
-    private String NRIC;
+    private String postalCode;
 
-    private LocalDateTime createTime;
+    private String detailLocation;
+
+    private String label;
+
+    private Integer isDefault;
 }

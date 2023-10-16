@@ -15,6 +15,8 @@ public class JwtProperties {
      * gengerate JWT token
      */
     private String SecretKey;
+
     private long Ttl;
+
     private String TokenName;
 }

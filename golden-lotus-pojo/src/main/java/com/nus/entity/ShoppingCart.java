@@ -12,23 +12,25 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class People implements Serializable {
+public class ShoppingCart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    private String username;
-
     private String name;
 
-    private String password;
+    private String image;
 
-    private String phone;
+    private Long userId;
 
-    private String sex;
+    private Long dishId;
 
-    private String NRIC;
+    private Long chefId;
+
+    private Integer number;
+
+    private Double amount;
 
     private LocalDateTime createTime;
 }

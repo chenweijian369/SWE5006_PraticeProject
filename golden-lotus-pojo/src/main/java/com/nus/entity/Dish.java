@@ -12,23 +12,29 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class People implements Serializable {
+public class Dish implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    private String username;
-
     private String name;
 
-    private String password;
+    private Long categoryId;
 
-    private String phone;
+    private Double price;
 
-    private String sex;
+    private String image;
 
-    private String NRIC;
+    private String description;
+
+    private Integer status;
 
     private LocalDateTime createTime;
+
+    private LocalDateTime updateTime;
+
+    private Long createUser;
+
+    private Long updateUser;
 }
