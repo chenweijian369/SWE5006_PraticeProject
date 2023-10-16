@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Chef extends People {
 
+    private String image;
+
     private Integer status;
 
     private Integer categoryId;
