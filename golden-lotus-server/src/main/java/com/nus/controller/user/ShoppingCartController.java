@@ -46,7 +46,7 @@ public class ShoppingCartController {
 
     @DeleteMapping
     @ApiOperation(value = "clear shopping cart")
-    public Result clear(){
+    public Result<String> clear(){
         log.info("User starts to check out");
         shoppingCartService.emptyShoppingCart();
         return Result.success();
