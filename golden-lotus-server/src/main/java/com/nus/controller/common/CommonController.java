@@ -1,11 +1,13 @@
 package com.nus.controller.common;
 
+import com.nus.constant.MessageConstant;
 import com.nus.dto.AccountLoginDTO;
 import com.nus.dto.UserDTO;
 import com.nus.entity.People;
 import com.nus.properties.JwtProperties;
 import com.nus.result.Result;
 import com.nus.service.CommonService;
+import com.nus.utils.AliOssUtil;
 import com.nus.utils.JwtUtil;
 import com.nus.vo.AccountLoginVO;
 import io.swagger.annotations.Api;
@@ -16,9 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Common Service
@@ -29,6 +34,8 @@ import java.util.Map;
 @Api(tags = "Common Relevant Interface")
 @Slf4j
 public class CommonController {
+    @Autowired
+    private AliOssUtil aliOssUtil;
 
     @Autowired
     private CommonService commonService;
@@ -93,5 +100,32 @@ public class CommonController {
         commonService.save(userDTO);
 
         return Result.success();
+    }
+    /**
+     * 文件上传
+     * @param file
+     * @return
+     */
+    @PostMapping("/upload")
+    @ApiOperation("文件上传")
+    public Result<String> upload(MultipartFile file){
+        log.info("文件上传：{}",file);
+
+        try {
+            //原始文件名
+            String originalFilename = file.getOriginalFilename();
+            //截取原始文件名的后缀   dfdfdf.png
+            String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
+            //构造新文件名称
+            String objectName = UUID.randomUUID().toString() + extension;
+
+            //文件的请求路径
+            String filePath = aliOssUtil.upload(file.getBytes(), objectName);
+            return Result.success(filePath);
+        } catch (IOException e) {
+            log.error("文件上传失败：{}", e);
+        }
+
+        return Result.error(MessageConstant.UPLOAD_FAILED);
     }
 }

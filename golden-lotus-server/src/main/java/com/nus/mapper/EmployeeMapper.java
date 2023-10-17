@@ -22,7 +22,7 @@ public interface EmployeeMapper {
      * @param employee
      * @return
      */
-    @Insert("insert into chef"+"(name, username, password, phone, sex, id_number, status, create_time, update_time, create_user, update_user,image)" +"VALUES" +
+    @Insert("insert into chef"+"(name, username, password, phone, sex, idNumber, status, create_time, update_time, create_user, update_user,image)" +"VALUES" +
             "(#{name}, #{username}, #{password}, #{phone}, #{sex}, #{idNumber}, #{status}, #{createTime},#{updateTime},#{createUser}, #{updateUser},#{image})")
     void insert(Employee employee);
     /**

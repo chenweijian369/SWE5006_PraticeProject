@@ -17,7 +17,9 @@ public class EmployeeDTO implements Serializable {
 
     private String sex;
 
-    private String NRIC;
+    private String description;
+
+    private String idNumber;
 
     private String  image;
 

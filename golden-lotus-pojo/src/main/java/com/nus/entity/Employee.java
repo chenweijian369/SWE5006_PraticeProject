@@ -27,8 +27,12 @@ public class Employee implements Serializable {
     private String phone;
 
     private String sex;
+
     private String image;
-    private String NRIC;
+
+    private String idNumber;
+
+    private String description;
 
     private Integer status;
 
