@@ -15,9 +15,9 @@ public class Chef extends People {
 
     private String image;
 
-    private Integer status;
+    private String description;
 
-    private Integer categoryId;
+    private Integer status;
 
     private Integer isOccupied;
 

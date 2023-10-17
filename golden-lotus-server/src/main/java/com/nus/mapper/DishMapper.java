@@ -13,4 +13,6 @@ public interface DishMapper {
 
     @Select("select * from dish where chef_id = #{chefId} and status = 1")
     List<Dish> getByChefId(Long chefId);
+
+    List<Long> getChefIdsByDishName(String dishName);
 }

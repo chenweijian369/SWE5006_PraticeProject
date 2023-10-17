@@ -1,9 +1,9 @@
 package com.nus.service;
 
-import com.nus.entity.Dish;
+import com.nus.vo.DishVO;
 
 import java.util.List;
 
 public interface DishService {
-    List<Dish> showAllDishesOfChef(Long chefId);
+    List<DishVO> showAllDishesOfChef(Long chefId);
 }

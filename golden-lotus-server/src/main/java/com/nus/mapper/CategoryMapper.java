@@ -1,6 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.entity.Category;
+import com.nus.vo.CategoryVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,6 +10,6 @@ import java.util.List;
 public interface CategoryMapper {
 
     @Select("select * from category")
-    List<Category> showAll();
+    List<CategoryVO> showAll();
 
 }
