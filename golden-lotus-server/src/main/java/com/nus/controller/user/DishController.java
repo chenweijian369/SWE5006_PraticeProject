@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("userDishController")
 @RequestMapping("/user/chef/dish")
 @Slf4j
 @Api(tags = "Dish Relevant Interface")

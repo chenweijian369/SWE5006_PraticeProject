@@ -40,7 +40,8 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         registry.addInterceptor(jwtTokenInterceptor)
                 .addPathPatterns("/common/**")
                 .addPathPatterns("/user/**")
-                .excludePathPatterns("/common/login", "/common/register");
+                .addPathPatterns("/chef/**")
+                .excludePathPatterns("/common/login", "/user/register");
     }
 
     /**
@@ -76,6 +77,23 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .apiInfo(apiInfo)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.nus.controller.user"))
+                .paths(PathSelectors.any())
+                .build();
+        return docket;
+    }
+
+    @Bean
+    public Docket docket3() {
+        ApiInfo apiInfo = new ApiInfoBuilder()
+                .title("Golden Lotus Interface Documentation")
+                .version("1.0")
+                .description("Golden Lotus Interface Documentation")
+                .build();
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Chef Interface")
+                .apiInfo(apiInfo)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nus.controller.chef"))
                 .paths(PathSelectors.any())
                 .build();
         return docket;

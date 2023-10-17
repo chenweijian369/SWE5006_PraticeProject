@@ -10,4 +10,51 @@
             </if>
         </where>
     </select>
+
+    <update id="update" parameterType="Dish">
+        update dish
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+
+            <if test="price != null and price != ''">
+                price = #{price},
+            </if>
+
+            <if test="image != null and image != ''">
+                image = #{image},
+            </if>
+
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+
+            <if test="status != null">
+                status = #{status},
+            </if>
+
+            <if test="updateTime != null and updateTime != ''">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.nus.vo.DishVO">
+        select * from dish
+        <where>
+            <if test="chefId != null">
+                and chef_id = #{chefId}
+            </if>
+
+            <if test="name != null">
+                and name like concat('%', #{name}, '%')
+            </if>
+
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
 </mapper>

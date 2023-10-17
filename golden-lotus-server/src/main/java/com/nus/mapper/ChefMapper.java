@@ -17,6 +17,6 @@ public interface ChefMapper {
     Chef getById(Long id);
 
     @Select("select c.id, c.name, c.sex, c.image, c.description from chef_category cc left join chef c " +
-            "on cc.chef_id = c.id where category_id = #{categoryId}")
+            "on cc.chef_id = c.id where category_id = #{categoryId} and status = 1")
     List<ChefVO> getByCategoryId(Long categoryId);
 }

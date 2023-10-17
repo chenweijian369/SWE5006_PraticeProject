@@ -74,19 +74,4 @@ public class CommonServiceImpl implements CommonService {
 
         return people;
     }
-
-    /**
-     * User Register
-     * Done by CHEN WEIJIAN
-     * @param userDTO
-     */
-    @Override
-    public void save(UserDTO userDTO) {
-        User user = new User();
-        BeanUtils.copyProperties(userDTO, user);
-        user.setCreateTime(LocalDateTime.now());
-        user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
-
-        userMapper.insert(user);
-    }
 }
