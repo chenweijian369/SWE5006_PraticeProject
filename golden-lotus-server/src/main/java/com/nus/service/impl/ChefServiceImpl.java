@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.nus.constant.PasswordConstant;
 import com.nus.constant.StatusConstant;
 import com.nus.context.BaseContext;
+import com.nus.dto.ChefAccountDTO;
 import com.nus.dto.ChefDTO;
 import com.nus.dto.ChefPageDTO;
 import com.nus.entity.Chef;
@@ -104,5 +105,16 @@ public class ChefServiceImpl implements ChefService {
     @Override
     public void deleteChefCategoryById(Long id) {
         chefCategoryMapper.deleteByCategoryId(id);
+    }
+
+    @Override
+    public void updateAccount(ChefAccountDTO chefAccountDTO) {
+        Chef chef = new Chef();
+        BeanUtils.copyProperties(chefAccountDTO, chef);
+        chef.setPassword(DigestUtils.md5DigestAsHex(chefAccountDTO.getPassword().getBytes()));
+        chef.setUpdateTime(LocalDateTime.now());
+        chef.setUpdateUser(BaseContext.getCurrentId());
+
+        chefMapper.update(chef);
     }
 }

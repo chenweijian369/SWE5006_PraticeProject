@@ -13,11 +13,11 @@
                 username = #{username},
             </if>
 
-            <if test="password != null">
+            <if test="password != null and password != ''">
                 password = #{password},
             </if>
 
-            <if test="phone != null">
+            <if test="phone != null and phone != ''">
                 phone = #{phone},
             </if>
 
@@ -29,11 +29,11 @@
                 NRIC = #{NRIC},
             </if>
 
-            <if test="image != null">
+            <if test="image != null and image != ''">
                 image = #{image},
             </if>
 
-            <if test="description != null">
+            <if test="description != null and description != ''">
                 description = #{description},
             </if>
 

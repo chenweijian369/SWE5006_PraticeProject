@@ -1,5 +1,6 @@
 package com.nus.service;
 
+import com.nus.dto.ChefAccountDTO;
 import com.nus.dto.ChefDTO;
 import com.nus.dto.ChefPageDTO;
 import com.nus.entity.Chef;
@@ -25,4 +26,6 @@ public interface ChefService {
     void classifyChefCategoryById(Long categoryId);
 
     void deleteChefCategoryById(Long id);
+
+    void updateAccount(ChefAccountDTO chefAccountDTO);
 }

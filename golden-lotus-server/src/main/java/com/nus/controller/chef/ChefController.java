@@ -1,5 +1,6 @@
 package com.nus.controller.chef;
 
+import com.nus.dto.ChefAccountDTO;
 import com.nus.dto.ChefDTO;
 import com.nus.result.Result;
 import com.nus.service.ChefService;
@@ -39,9 +40,9 @@ public class ChefController {
 
     @PostMapping("/modify")
     @ApiOperation(value = "Chef modify information")
-    public Result<String> update(ChefDTO chefDTO){
+    public Result<String> modifyAccountInfo(ChefAccountDTO chefAccountDTO){
         log.info("Chef updating information");
-        chefService.update(chefDTO);
+        chefService.updateAccount(chefAccountDTO);
         return Result.success();
     }
 }
