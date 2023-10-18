@@ -31,5 +31,4 @@ public class CategoryController {
         return Result.success(list);
     }
 
-
 }

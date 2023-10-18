@@ -99,6 +99,23 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
         return docket;
     }
 
+    @Bean
+    public Docket docket4() {
+        ApiInfo apiInfo = new ApiInfoBuilder()
+                .title("Golden Lotus Interface Documentation")
+                .version("1.0")
+                .description("Golden Lotus Interface Documentation")
+                .build();
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .groupName("Admin Interface")
+                .apiInfo(apiInfo)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.nus.controller.admin"))
+                .paths(PathSelectors.any())
+                .build();
+        return docket;
+    }
+
     /**
      * 设置静态资源映射
      * @param registry

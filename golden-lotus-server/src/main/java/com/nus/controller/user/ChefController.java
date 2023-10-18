@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("userChefController")
 @RequestMapping("/user/chef")
 @Slf4j
 @Api(tags = "Chef Relevant Interface")
