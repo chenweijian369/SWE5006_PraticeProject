@@ -1,5 +1,6 @@
 package com.nus.controller.chef;
 
+import com.nus.dto.ChefDTO;
 import com.nus.result.Result;
 import com.nus.service.ChefService;
 import io.swagger.annotations.Api;
@@ -33,6 +34,14 @@ public class ChefController {
     public Result<String> deleteClassification(Long id){
         log.info("Chef deleting classification of himself");
         chefService.deleteChefCategoryById(id);
+        return Result.success();
+    }
+
+    @PostMapping("/modify")
+    @ApiOperation(value = "Chef modify information")
+    public Result<String> update(ChefDTO chefDTO){
+        log.info("Chef updating information");
+        chefService.update(chefDTO);
         return Result.success();
     }
 }
