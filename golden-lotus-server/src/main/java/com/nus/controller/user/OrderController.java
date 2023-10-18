@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/user/order")
-@Api(tags = "Order Relevent Interface")
+@Api(tags = "Order Relevant Interface")
 public class OrderController {
+
 }
