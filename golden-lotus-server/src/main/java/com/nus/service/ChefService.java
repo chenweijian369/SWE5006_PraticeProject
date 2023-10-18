@@ -21,4 +21,8 @@ public interface ChefService {
     void startOrStop(Integer status, Long id);
 
     Chef getById(Long id);
+
+    void classifyChefCategoryById(Long categoryId);
+
+    void deleteChefCategoryById(Long id);
 }

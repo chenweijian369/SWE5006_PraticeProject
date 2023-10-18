@@ -8,6 +8,7 @@ import com.nus.context.BaseContext;
 import com.nus.dto.ChefDTO;
 import com.nus.dto.ChefPageDTO;
 import com.nus.entity.Chef;
+import com.nus.entity.ChefCategory;
 import com.nus.mapper.ChefCategoryMapper;
 import com.nus.mapper.ChefMapper;
 import com.nus.result.PageResult;
@@ -84,5 +85,24 @@ public class ChefServiceImpl implements ChefService {
         // Masking password
         chef.setPassword("****");
         return chef;
+    }
+
+    @Override
+    public void classifyChefCategoryById(Long categoryId) {
+        List<ChefCategory> list = chefCategoryMapper.getByChefIdAndCategoryId(BaseContext.getCurrentId(), categoryId);
+
+        if (list != null){
+            return;
+        }
+
+        ChefCategory chefCategory = new ChefCategory();
+        chefCategory.setChefId(BaseContext.getCurrentId());
+        chefCategory.setCategoryId(categoryId);
+        chefCategoryMapper.insert(chefCategory);
+    }
+
+    @Override
+    public void deleteChefCategoryById(Long id) {
+        chefCategoryMapper.deleteByCategoryId(id);
     }
 }
