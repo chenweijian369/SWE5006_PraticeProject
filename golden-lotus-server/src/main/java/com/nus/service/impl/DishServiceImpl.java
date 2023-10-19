@@ -28,7 +28,7 @@ public class DishServiceImpl implements DishService {
     @Override
     public List<DishVO> showAllDishesOfChef(Long chefId) {
         List<Dish> dishList = dishMapper.getByChefId(chefId);
-        List<DishVO> dishVOList =new ArrayList<>();
+        List<DishVO> dishVOList = new ArrayList<>();
 
         for (Dish d : dishList) {
             DishVO dishVO = new DishVO();

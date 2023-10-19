@@ -26,12 +26,27 @@ public class DishController {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    // TODO
+    /**
+     * Show All Enable Dishes of Chef to User
+     * @param chefId
+     * @return
+     */
     @GetMapping("/show")
     @ApiOperation("show all available dishes")
     public Result<List<DishVO>> showByChefId(Long chefId){
         log.info("Show all dishes of the chef");
-        List<DishVO> list = dishService.showAllDishesOfChef(chefId);
+        // set redis key with format likes dish_1"
+        String key = "dish_ChefId" + chefId;
+        // search result in redis
+        List<DishVO> list = (List<DishVO>) redisTemplate.opsForValue().get(key);
+        // if found, then return
+        if (list != null){
+            return Result.success(list);
+        }
+        // if not found, search in MySQL database
+        list = dishService.showAllDishesOfChef(chefId);
+        // set redis key and value
+        redisTemplate.opsForValue().set(key, list);
         return Result.success(list);
     }
 }
