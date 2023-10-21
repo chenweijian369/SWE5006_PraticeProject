@@ -21,4 +21,6 @@ public interface DishService {
     void disableDishById(Long id);
 
     PageResult pageQuery(DishPageDTO dishPageDTO);
+
+    DishVO getDishById(Long id);
 }

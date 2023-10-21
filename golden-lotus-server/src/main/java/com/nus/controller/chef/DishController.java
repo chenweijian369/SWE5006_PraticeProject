@@ -6,6 +6,7 @@ import com.nus.dto.DishPageDTO;
 import com.nus.result.PageResult;
 import com.nus.result.Result;
 import com.nus.service.DishService;
+import com.nus.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -113,6 +114,14 @@ public class DishController {
         log.info("Show dish in page");
         PageResult pageResult = dishService.pageQuery(dishPageDTO);
         return Result.success(pageResult);
+    }
+
+    @GetMapping("/show/{id}")
+    @ApiOperation(value = "show dish by id")
+    public Result<DishVO> showById(@PathVariable Long id){
+        log.info("Show dish by id");
+        DishVO dishVO = dishService.getDishById(id);
+        return Result.success(dishVO);
     }
 
     /**

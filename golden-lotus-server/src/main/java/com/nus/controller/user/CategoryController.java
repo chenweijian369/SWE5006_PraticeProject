@@ -23,6 +23,10 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    /**
+     * Show All Categories to User
+     * @return
+     */
     @GetMapping("/show")
     @ApiOperation(value = "Show all categories in filter")
     public Result<List<CategoryVO>> showAll(){

@@ -87,4 +87,15 @@ public class DishServiceImpl implements DishService {
         Page<DishVO> page = dishMapper.pageQuery(dishPageDTO);
         return new PageResult(page.getTotal(), page.getResult());
     }
+
+    @Override
+    public DishVO getDishById(Long id) {
+        // select dish by id
+        Dish dish = dishMapper.getById(id);
+
+        // copy data to dishVO
+        DishVO dishVO = new DishVO();
+        BeanUtils.copyProperties(dish, dishVO);
+        return dishVO;
+    }
 }
