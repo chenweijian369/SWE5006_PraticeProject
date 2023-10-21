@@ -18,15 +18,19 @@ public class ShoppingCart implements Serializable {
 
     private Long id;
 
-    private String name;
-
-    private String image;
-
     private Long userId;
 
     private Long dishId;
 
     private Long chefId;
+
+    private String dishName;
+
+    private String dishImage;
+
+    private String chefName;
+
+    private String chefImage;
 
     private Integer number;
 

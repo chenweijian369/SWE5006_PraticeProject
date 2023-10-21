@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class EmployeeDTO implements Serializable {
+public class ChefDTO implements Serializable {
 
     private Long id;
 
@@ -17,6 +17,10 @@ public class EmployeeDTO implements Serializable {
 
     private String sex;
 
-    private String idNumber;
+    private String description;
+
+    private String NRIC;
+
+    private String image;
 
 }

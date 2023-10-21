@@ -11,7 +11,10 @@ public interface ShoppingCartService {
 
     void removeFromShoppingCart(ShoppingCartDTO shoppingCartDTO);
 
-    List<ShoppingCart> showAllDishesInShoppingCart();
+    List<ShoppingCart> showAll();
 
     void emptyShoppingCart();
+
+    Double calculateTotal();
+
 }
