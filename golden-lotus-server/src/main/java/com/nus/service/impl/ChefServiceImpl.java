@@ -10,6 +10,7 @@ import com.nus.dto.ChefDTO;
 import com.nus.dto.ChefPageDTO;
 import com.nus.entity.Chef;
 import com.nus.entity.ChefCategory;
+import com.nus.entity.People;
 import com.nus.mapper.ChefCategoryMapper;
 import com.nus.mapper.ChefMapper;
 import com.nus.result.PageResult;
@@ -87,6 +88,7 @@ public class ChefServiceImpl implements ChefService {
         chef.setPassword("****");
         return chef;
     }
+
 
     @Override
     public void classifyChefCategoryById(Long categoryId) {

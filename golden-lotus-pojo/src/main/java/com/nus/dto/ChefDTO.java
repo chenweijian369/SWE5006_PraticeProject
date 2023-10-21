@@ -18,8 +18,8 @@ public class ChefDTO implements Serializable {
     private String sex;
 
     private String description;
-
-    private String NRIC;
+//idNumber是NRIC
+    private String idNumber;
 
     private String image;
 
