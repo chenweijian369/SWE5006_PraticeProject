@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -28,7 +29,7 @@ public class OrderVO implements Serializable {
 
     private Integer number;
 
-    private String order_time;
+    private LocalDateTime order_time;
 
     private String phone;
 

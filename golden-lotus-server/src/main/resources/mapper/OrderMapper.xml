@@ -12,4 +12,11 @@
             user_name = #{userName}
         </where>
     </select>
+
+    <insert id="placeOrder">
+        insert into orders
+        (id,address,address_book_id,amount,checkout_time,consignee,delivery_time,number,order_time,phone,remark,status,user_id,user_name)
+        values
+        (#{id},#{address},#{addressId},#{addressId},#{amount},#{checkoutTime},#{consignee},#{deliveryTime},#{number},#{orderTime},#{phone},#{remark},#{status},#{userId},#{username})
+    </insert>
 </mapper>

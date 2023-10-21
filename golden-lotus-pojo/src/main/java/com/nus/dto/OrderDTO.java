@@ -4,7 +4,10 @@ import com.nus.entity.Address;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
+
 /**
  * @author NIEWENYU
  * */
@@ -13,7 +16,12 @@ public class OrderDTO implements Serializable {
 
     private Long id;
 
-    private AddressDTO address;
+    private Long chefId;
+
+    private String address;
+
+    //Store all dishes
+    private List<DishDTO> dishDTOList;
 
     private Long addressId;
 
@@ -26,7 +34,7 @@ public class OrderDTO implements Serializable {
 
     private Integer number;
 
-    private String order_time;
+    private LocalDateTime order_time;
 
     private String phone;
 

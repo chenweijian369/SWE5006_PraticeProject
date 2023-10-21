@@ -1,15 +1,13 @@
 package com.nus.controller.user;
 
+import com.nus.dto.OrderDTO;
 import com.nus.entity.Order;
 import com.nus.result.Result;
 import com.nus.service.OrderService;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,6 +32,14 @@ public class OrderController {
         log.info("Show all order by searching user");
         List<Order> list = orderService.getOrdersByUsername(userName);
         return Result.success(list);
+    }
+
+    @PostMapping("/place")
+    private Result placeOrder(@RequestBody OrderDTO orderDTO){
+        log.info("User placed an order");
+        orderService.placeOrder(orderDTO);
+        return Result.success();
+
     }
 
 }

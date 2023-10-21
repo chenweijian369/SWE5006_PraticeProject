@@ -2,9 +2,8 @@ package com.nus.mapper;
 
 
 import com.nus.entity.Order;
+import com.nus.entity.OrderDetails;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.aspectj.weaver.ast.Or;
 
 import java.util.List;
 
@@ -17,4 +16,8 @@ public interface OrderMapper {
     List<Order> getUserOrder();
 
     List<Order> getOrdersByUsername(String userName);
+
+    void saveOrderDetails(OrderDetails orderDetails);
+
+    void placeOrder(Order order);
 }

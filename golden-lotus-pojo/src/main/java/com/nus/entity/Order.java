@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -15,7 +17,9 @@ public class Order implements Serializable {
 
     private Long id;
 
-    private AddressDTO address;
+//    private AddressDTO address;
+
+    private String address;
 
     private Long addressId;
 
@@ -26,9 +30,11 @@ public class Order implements Serializable {
     //TODO 不确定是否 是String 还是 User
     private String consignee;
 
+    private LocalDateTime deliveryTime;
+
     private Integer number;
 
-    private String order_time;
+    private LocalDateTime orderTime;
 
     private String phone;
 
