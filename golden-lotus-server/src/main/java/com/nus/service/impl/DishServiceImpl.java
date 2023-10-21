@@ -35,7 +35,7 @@ public class DishServiceImpl implements DishService {
             BeanUtils.copyProperties(d, dishVO);
             dishVOList.add(dishVO);
         }
-        
+
         return dishVOList;
     }
 

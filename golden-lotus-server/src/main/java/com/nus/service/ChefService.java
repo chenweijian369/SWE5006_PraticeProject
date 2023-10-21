@@ -4,6 +4,7 @@ import com.nus.dto.ChefAccountDTO;
 import com.nus.dto.ChefDTO;
 import com.nus.dto.ChefPageDTO;
 import com.nus.entity.Chef;
+import com.nus.entity.People;
 import com.nus.result.PageResult;
 import com.nus.vo.ChefVO;
 

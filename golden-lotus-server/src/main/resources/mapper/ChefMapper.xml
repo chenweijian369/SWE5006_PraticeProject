@@ -25,8 +25,8 @@
                 sex = #{sex},
             </if>
 
-            <if test="NRIC != null">
-                NRIC = #{NRIC},
+            <if test="idNumber != null">
+                idNumber = #{idNumber},
             </if>
 
             <if test="image != null and image != ''">
