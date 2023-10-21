@@ -15,7 +15,7 @@ public interface AddressMapper {
             "values (#{userId}, #{consignee}, #{sex}, #{phone}, #{postalCode}, #{detailLocation}, #{label}, #{isDefault})")
     void insert(Address address);
 
-    void update(Address addressDTO);
+    void update(Address address);
 
     @Delete("delete from address where id = #{id}")
     void deleteById(Long id);

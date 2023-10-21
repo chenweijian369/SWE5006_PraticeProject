@@ -1,4 +1,4 @@
-package com.nus.vo;
+package com.nus.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,22 +6,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DishVO implements Serializable {
+public class ChefAccountDTO implements Serializable {
 
     private Long id;
 
-    private String name;
-
-    private Double price;
-
-    private String image;
+    private String phone;
 
     private String description;
 
+    private String image;
+
+    private String password;
 }

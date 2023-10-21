@@ -1,7 +1,6 @@
 package com.nus.controller.common;
 
 import com.nus.dto.AccountLoginDTO;
-import com.nus.dto.UserDTO;
 import com.nus.entity.People;
 import com.nus.properties.JwtProperties;
 import com.nus.result.Result;
@@ -76,22 +75,6 @@ public class CommonController {
     @ApiOperation(value = "logout")
     public Result<String> logout(){
         log.info("User Logout...");
-        return Result.success();
-    }
-
-    /**
-     * User Register
-     * Done by CHEN WEIJIAN
-     * @param userDTO
-     * @return
-     */
-    @PostMapping("/register")
-    @ApiOperation(value = "register")
-    public Result register(@RequestBody UserDTO userDTO){
-        log.info("User Register: {}", userDTO);
-
-        commonService.save(userDTO);
-
         return Result.success();
     }
 }

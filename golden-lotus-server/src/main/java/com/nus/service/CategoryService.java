@@ -1,9 +1,9 @@
 package com.nus.service;
 
-import com.nus.entity.Category;
+import com.nus.vo.CategoryVO;
 
 import java.util.List;
 
 public interface CategoryService {
-    List<Category> showAll();
+    List<CategoryVO> showAll();
 }

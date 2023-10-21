@@ -1,8 +1,8 @@
 package com.nus.service.impl;
 
-import com.nus.entity.Category;
 import com.nus.mapper.CategoryMapper;
 import com.nus.service.CategoryService;
+import com.nus.vo.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryMapper categoryMapper;
 
     @Override
-    public List<Category> showAll() {
+    public List<CategoryVO> showAll() {
         return categoryMapper.showAll();
     }
 }

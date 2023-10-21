@@ -3,6 +3,7 @@ package com.nus.controller.user;
 import com.nus.entity.Category;
 import com.nus.result.Result;
 import com.nus.service.CategoryService;
+import com.nus.vo.CategoryVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +25,10 @@ public class CategoryController {
 
     @GetMapping("/show")
     @ApiOperation(value = "Show all categories in filter")
-    public Result<List<Category>> showAll(){
-        log.info("User Using Filter");
-        List<Category> list = categoryService.showAll();
+    public Result<List<CategoryVO>> showAll(){
+        log.info("Show all filers");
+        List<CategoryVO> list = categoryService.showAll();
         return Result.success(list);
     }
-
 
 }
