@@ -1,4 +1,4 @@
-package com.nus.entity;
+package com.nus.vo;
 
 import com.nus.dto.AddressDTO;
 import lombok.AllArgsConstructor;
@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Order implements Serializable {
-
+public class OrderVO implements Serializable {
     private Long id;
 
     private AddressDTO address;

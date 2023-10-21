@@ -17,9 +17,25 @@ public class OrderDTO implements Serializable {
 
     private Long addressId;
 
-    private double amount;
+    private Double amount;
 
-    private Date checkoutTime;
+    private String checkoutTime;
 
+    //TODO 不确定是否 是String 还是 User
+    private String consignee;
+
+    private Integer number;
+
+    private String order_time;
+
+    private String phone;
+
+    private String remark;
+
+    private Integer status;
+
+    private Integer userId;
+
+    private String username;
 
 }
