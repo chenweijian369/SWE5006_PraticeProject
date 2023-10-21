@@ -9,7 +9,6 @@ import com.nus.entity.User;
 import com.nus.exception.AccountNotFoundException;
 import com.nus.exception.PasswordErrorException;
 import com.nus.mapper.AdminMapper;
-import com.nus.mapper.ChefMapper;
 import com.nus.mapper.UserMapper;
 import com.nus.service.CommonService;
 import org.springframework.beans.BeanUtils;
