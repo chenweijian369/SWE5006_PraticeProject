@@ -12,7 +12,6 @@ import java.util.List;
 public interface ChefService {
     List<ChefVO> showAllChefsOfCategory(Long categoryId);
 
-
     void save(ChefDTO chefDTO);
 
     void update(ChefDTO chefDTO);

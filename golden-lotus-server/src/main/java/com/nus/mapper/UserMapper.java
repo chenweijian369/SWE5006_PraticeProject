@@ -13,8 +13,8 @@ public interface UserMapper {
     @Select("select * from user where username = #{username}")
     User getByUserName(String username);
 
-    @Insert("insert into user (name, username, password, phone, sex, NRIC, create_time)" +
+    @Insert("insert into user (name, username, password, phone, sex, id_number, create_time)" +
             "values " +
-            "(#{name}, #{username}, #{password}, #{phone}, #{sex}, #{NRIC}, #{createTime})")
+            "(#{name}, #{username}, #{password}, #{phone}, #{sex}, #{idNumber}, #{createTime})")
     void insert(User user);
 }

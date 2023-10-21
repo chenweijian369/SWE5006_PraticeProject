@@ -1,20 +1,17 @@
 package com.nus.controller.chef;
 
 import com.nus.dto.ChefAccountDTO;
-import com.nus.dto.ChefDTO;
+import com.nus.entity.Chef;
 import com.nus.result.Result;
 import com.nus.service.ChefService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("chefController")
-@RequestMapping("/chef")
+@RequestMapping("/chef/chefInfo")
 @Slf4j
 @Api(tags = "Chef Relevant Controller")
 public class ChefController {
@@ -22,6 +19,11 @@ public class ChefController {
     @Autowired
     private ChefService chefService;
 
+    /**
+     * Chef Sets His Category
+     * @param categoryId
+     * @return
+     */
     @PostMapping("/category/add")
     @ApiOperation(value = "chef set category of himself")
     public Result<String> classifyChef(Long categoryId){
@@ -30,6 +32,11 @@ public class ChefController {
         return Result.success();
     }
 
+    /**
+     * Chef Deletes His Category
+     * @param id
+     * @return
+     */
     @DeleteMapping("/category/delete")
     @ApiOperation(value = "chef delete category of himself")
     public Result<String> deleteClassification(Long id){
@@ -38,11 +45,28 @@ public class ChefController {
         return Result.success();
     }
 
-    @PostMapping("/modify")
+    /**
+     * Chef Modifies His Information
+     * @param chefAccountDTO
+     * @return
+     */
+    @PutMapping("/modify")
     @ApiOperation(value = "Chef modify information")
-    public Result<String> modifyAccountInfo(ChefAccountDTO chefAccountDTO){
+    public Result<String> modifyAccountInfo(@RequestBody ChefAccountDTO chefAccountDTO){
         log.info("Chef updating information");
         chefService.updateAccount(chefAccountDTO);
         return Result.success();
+    }
+
+    /**
+     * Show Chef Information By Id
+     * @param id
+     * @return
+     */
+    @GetMapping("/get/{id}")
+    @ApiOperation("show chef by ID")
+    public Result<Chef> getByID(@PathVariable Long id){
+        Chef chef = chefService.getById(id);
+        return Result.success(chef);
     }
 }

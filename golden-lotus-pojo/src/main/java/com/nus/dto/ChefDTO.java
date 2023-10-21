@@ -19,7 +19,7 @@ public class ChefDTO implements Serializable {
 
     private String description;
 
-    private String NRIC;
+    private String idNumber;
 
     private String image;
 

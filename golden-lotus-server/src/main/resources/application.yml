@@ -42,4 +42,9 @@ nus:
     appid: ${nus.wechat.appid}
     secret: ${nus.wechat.secret}
 
+  alioss:
+    endpoint: ${nus.alioss.endpoint}
+    access-key-id: ${nus.alioss.access-key-id}
+    access-key-secret: ${nus.alioss.access-key-secret}
+    bucket-name: ${nus.alioss.bucket-name}
 

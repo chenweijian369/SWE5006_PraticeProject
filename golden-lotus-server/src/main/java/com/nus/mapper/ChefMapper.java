@@ -24,9 +24,9 @@ public interface ChefMapper {
     List<ChefVO> getByCategoryId(Long categoryId);
 
     @Insert("insert into chef " +
-            "(name, username, password, phone, sex, NRIC, image, description, status, is_occupied, create_time, update_time, create_user, update_user)"
+            "(name, username, password, phone, sex, id_number, image, description, status, is_occupied, create_time, update_time, create_user, update_user)"
             +"VALUES" +
-            "(#{name}, #{username}, #{password}, #{phone}, #{sex}, #{NRIC}, #{image}, #{description}, #{status}, #{isOccupied}, #{createTime},#{updateTime},#{createUser}, #{updateUser})")
+            "(#{name}, #{username}, #{password}, #{phone}, #{sex}, #{idNumber}, #{image}, #{description}, #{status}, #{isOccupied}, #{createTime},#{updateTime},#{createUser}, #{updateUser})")
     void insert(Chef chef);
 
     void update(Chef chef);

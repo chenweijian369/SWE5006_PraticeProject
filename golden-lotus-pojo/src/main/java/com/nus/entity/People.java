@@ -28,7 +28,7 @@ public class People implements Serializable {
 
     private String sex;
 
-    private String NRIC;
+    private String idNumber;
 
     private LocalDateTime createTime;
 }
