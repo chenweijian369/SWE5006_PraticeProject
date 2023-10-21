@@ -5,4 +5,11 @@
     <select id="getUserOrder" resultType="Order">
         select * from orders
     </select>
+
+    <select id="getOrdersByUsername" resultType="Order">
+        select * from orders
+        <where>
+            user_name = #{userName}
+        </where>
+    </select>
 </mapper>

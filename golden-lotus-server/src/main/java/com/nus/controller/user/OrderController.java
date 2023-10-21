@@ -23,9 +23,18 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping("/show")
-    private Result<List<Order>> show(){
+    private Result<List<Order>> show() {
         log.info("Show all orders");
         List<Order> list = orderService.getUserOrder();
         return Result.success(list);
     }
+
+    @GetMapping("/showByUser")
+    private Result<List<Order>> showByUsername(String userName) {
+        log.info("Show all order by searching user");
+        List<Order> list = orderService.getOrdersByUsername(userName);
+        return Result.success(list);
+    }
+
 }
+

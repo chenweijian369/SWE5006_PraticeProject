@@ -22,4 +22,9 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getUserOrder() {
         return orderMapper.getUserOrder();
     }
+
+    @Override
+    public List<Order> getOrdersByUsername(String userName) {
+        return orderMapper.getOrdersByUsername(userName);
+    }
 }
