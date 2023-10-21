@@ -39,7 +39,7 @@ public class DishController {
         log.info("Chef adding dish");
         dishService.addNewDish(dishDTO);
         // clean redis data
-        cleanRedisCache();
+        //cleanRedisCache();
         return Result.success();
     }
 
@@ -54,7 +54,7 @@ public class DishController {
         log.info("Chef modifying dish");
         dishService.updateDish(dishDTO);
         // clean redis data
-        cleanRedisCache();
+        //cleanRedisCache();
         return Result.success();
     }
 
@@ -69,7 +69,7 @@ public class DishController {
         log.info("chef deleting dish");
         dishService.deleteById(id);
         // clean redis data
-        cleanRedisCache();
+        //cleanRedisCache();
         return Result.success();
     }
 
@@ -84,7 +84,7 @@ public class DishController {
         log.info("chef enabling dish");
         dishService.enableDishById(id);
         // clean redis data
-        cleanRedisCache();
+        //cleanRedisCache();
         return Result.success();
     }
 
@@ -99,7 +99,7 @@ public class DishController {
         log.info("chef disabling dish");
         dishService.disableDishById(id);
         // clean redis data
-        cleanRedisCache();
+        //cleanRedisCache();
         return Result.success();
     }
 
@@ -127,9 +127,9 @@ public class DishController {
     /**
      * Clean Cache in Redis
      */
-    private void cleanRedisCache(){
-        String key = "dish_ChefId" + BaseContext.getCurrentId();
-        Set keys = redisTemplate.keys(key);
-        redisTemplate.delete(keys);
-    }
+//    private void cleanRedisCache(){
+//        String key = "dish_ChefId" + BaseContext.getCurrentId();
+//        Set keys = redisTemplate.keys(key);
+//        redisTemplate.delete(keys);
+//    }
 }
