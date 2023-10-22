@@ -106,6 +106,13 @@
             <artifactId>jaxb-api</artifactId>
         </dependency>
 
+        <!--payment-->
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.22.49.ALL</version>
+        </dependency>
+
         <!-- poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
