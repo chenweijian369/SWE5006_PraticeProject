@@ -32,4 +32,8 @@ public interface ChefMapper {
     void update(Chef chef);
 
     Page<Chef> pageQuery(ChefPageDTO chefPageDTO);
+
+    @Select("select * from chef where status = 1")
+    List<ChefVO> showAllEnableChefs();
+
 }

@@ -117,4 +117,9 @@ public class ChefServiceImpl implements ChefService {
 
         chefMapper.update(chef);
     }
+
+    @Override
+    public List<ChefVO> showAll() {
+        return chefMapper.showAllEnableChefs();
+    }
 }

@@ -27,4 +27,7 @@ public interface ChefService {
     void deleteChefCategoryById(Long id);
 
     void updateAccount(ChefAccountDTO chefAccountDTO);
+
+    List<ChefVO> showAll();
+
 }
