@@ -19,4 +19,12 @@
             )
         </foreach>
     </insert>
+
+
+    <delete id="cancelOrder">
+        delete from order_detail
+        <where>
+            order_id = #{order_id}
+        </where>
+    </delete>
 </mapper>

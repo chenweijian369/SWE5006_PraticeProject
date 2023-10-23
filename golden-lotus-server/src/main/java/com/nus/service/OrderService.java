@@ -8,13 +8,14 @@ import com.nus.vo.OrderStatisticsVO;
 import com.nus.vo.OrderSubmitVO;
 import com.nus.vo.OrderVO;
 
+/**
+ * @Date: 23.10.23
+ * @See: OrderController
+ * */
+
 public interface OrderService {
 //    OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO);
-//    /**
-//     * 订单支付
-//     * @param ordersPaymentDTO
-//     * @return
-//     */
+//
 //    OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exception;
 
 
@@ -24,7 +25,7 @@ public interface OrderService {
 
 //    OrderVO checkOrderDetail(Long id);
 
-//    void cancelOrder(Long id) throws Exception;
+    void cancelOrder(Long id);
 //
 //    void orderAgain(Long id);
 

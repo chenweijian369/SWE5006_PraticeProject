@@ -9,4 +9,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 public interface OrderMapper {
     Page<Orders> queryConditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    void cancelOrder(Long id);
 }
