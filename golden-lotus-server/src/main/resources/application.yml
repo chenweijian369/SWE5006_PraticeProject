@@ -48,3 +48,8 @@ nus:
     access-key-secret: ${nus.alioss.access-key-secret}
     bucket-name: ${nus.alioss.bucket-name}
 
+alipay:
+  appId:
+  appPrivateKey:
+  alipayPublicKey:
+    notifyUrl:
