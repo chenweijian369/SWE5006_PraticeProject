@@ -23,7 +23,7 @@ public interface OrderService {
 
 //    PageResult checkHistoryOrders(OrdersPageQueryDTO ordersPageQueryDTO);
 
-//    OrderVO checkOrderDetail(Long id);
+    OrderVO checkOrderDetail(Long id);
 
     void cancelOrder(Long id);
 //
