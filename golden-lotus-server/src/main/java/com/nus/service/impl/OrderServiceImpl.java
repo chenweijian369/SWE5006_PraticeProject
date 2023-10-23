@@ -37,6 +37,14 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDetailMapper orderDetailMapper;
 
+
+    @Override
+    public void cancelOrder(Long id){
+        orderMapper.cancelOrder(id);
+        orderDetailMapper.cancelOrder(id);
+    }
+
+    @Override
     public PageResult conditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
         PageHelper.startPage(ordersPageQueryDTO.getPage(),ordersPageQueryDTO.getPageSize());
         Page<Orders> page=orderMapper.queryConditionSearchOrders(ordersPageQueryDTO);
