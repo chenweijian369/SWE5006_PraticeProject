@@ -39,6 +39,19 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    public OrderVO checkOrderDetail(Long id) {
+        List<OrderDetail> orderDetails = orderDetailMapper.queryByOrderId(id);
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrderDetailList(orderDetails);
+        String dishes = "";
+        for (OrderDetail od: orderDetails){
+            dishes = od.getName() + "\n";
+        }
+        orderVO.setOrderDishes(dishes);
+        return orderVO;
+    }
+
+    @Override
     public void cancelOrder(Long id){
         orderMapper.cancelOrder(id);
         orderDetailMapper.cancelOrder(id);

@@ -27,4 +27,8 @@
             order_id = #{order_id}
         </where>
     </delete>
+
+    <select id="checkOrderDetail" resultType="com.nus.entity.OrderDetail">
+        select * from order_detail where order_id = #{order_id}
+    </select>
 </mapper>

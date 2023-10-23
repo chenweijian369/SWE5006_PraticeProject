@@ -32,10 +32,17 @@ public class OrderController {
     OrderService orderService;
 
     @GetMapping("/conditionSearch")
-    public Result<PageResult> conditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO){
+    public Result<PageResult> conditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
         log.info("订单搜索");
-        PageResult pageResult=orderService.conditionSearchOrders(ordersPageQueryDTO);
+        PageResult pageResult = orderService.conditionSearchOrders(ordersPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    @GetMapping("/searchById")
+    public Result<OrderVO> searchOrderById(Long id) {
+        log.info("通过 id 搜索订单");
+        OrderVO orderVO = orderService.checkOrderDetail(id);
+        return Result.success(orderVO);
     }
 
 }

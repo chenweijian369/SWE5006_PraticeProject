@@ -8,6 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface OrderDetailMapper {
+
+
     void insertDetailList(List<OrderDetail> orderDetailList);
 
     @Select("select * from order_detail where order_id= #{id}")
@@ -17,6 +19,8 @@ public interface OrderDetailMapper {
     List<OrderDetail> queryByDishId(Long id);
 
     void cancelOrder(Long order_id);
+
+   List<OrderDetail> checkOrderDetail(Long order_id);
 
 
 }
