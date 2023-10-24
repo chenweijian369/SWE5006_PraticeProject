@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName OrderController
- * @Description TODO
+ * @Description TODO 取消订单，
  * @Author @wrj
  * @Date 2023-10-21 15:21
  * @Version 1.0
  */
 
 @Slf4j
-@Api("订单管理接口")
+@Api("Order Interface")
 @RestController
 @RequestMapping("/admin/order")
 public class OrderController {
@@ -38,11 +38,25 @@ public class OrderController {
         return Result.success(pageResult);
     }
 
-    @GetMapping("/searchById")
-    public Result<OrderVO> searchOrderById(Long id) {
+    @GetMapping("/searchByOrderId")
+    public Result<OrderVO> searchOrderDetailByOrderId(Long id) {
         log.info("通过 id 搜索订单");
         OrderVO orderVO = orderService.checkOrderDetail(id);
         return Result.success(orderVO);
+    }
+
+//    @PostMapping("/deleteByOrderId")
+//    public Result deleteOrderDetailsByOrderId(Long orderId){
+//         log.info("通过 OrderId 删除 Order detail 信息");
+//         return Result.success();
+//    }
+
+    @PostMapping("/cancelOrderById")
+    public Result cancelOrderById(Long id){
+        log.info("取消订单");
+        orderService.cancelOrder(id);
+        return Result.success();
+        
     }
 
 }
