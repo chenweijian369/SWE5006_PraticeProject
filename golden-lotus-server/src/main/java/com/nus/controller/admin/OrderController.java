@@ -38,12 +38,12 @@ public class OrderController {
         return Result.success(pageResult);
     }
 
-    @GetMapping("/searchByOrderId")
-    public Result<OrderVO> searchOrderDetailByOrderId(Long id) {
-        log.info("通过 id 搜索订单");
-        OrderVO orderVO = orderService.checkOrderDetail(id);
-        return Result.success(orderVO);
-    }
+//    @GetMapping("/searchByOrderId")
+//    public Result<OrderVO> searchOrderDetailByOrderId(Long id) {
+//        log.info("通过 id 搜索订单");
+//        OrderVO orderVO = orderService.checkOrderDetail(id);
+//        return Result.success(orderVO);
+//    }
 
 //    @PostMapping("/deleteByOrderId")
 //    public Result deleteOrderDetailsByOrderId(Long orderId){
@@ -53,9 +53,10 @@ public class OrderController {
 
     /**
      * 取消订单
+     * ✅
      * @Return Result
      * */
-    @GetMapping("/cancelOrderById")
+    @PutMapping("/cancel")
     @ApiOperation("取消订单")
     public Result cancelOrder(@RequestBody OrdersCancelDTO ordersCancelDTO) throws Exception {
         log.info("取消订单");
@@ -63,10 +64,36 @@ public class OrderController {
         return Result.success();
     }
 
-    @GetMapping("/confirmOrderById")
-    public Result confirmOrderById(OrdersConfirmDTO ordersConfirmDTO){
+    /**
+     * Query order details
+     * ✅
+     * */
+    @GetMapping("/orderDetail/{id}")
+    @ApiOperation("查询订单详情")
+    public Result<OrderVO> details(@PathVariable("id") Long id){
+        log.info("查询订单详情");
+        OrderVO orderVO = orderService.details(id);
+        return Result.success(orderVO);
+    }
+
+    /**
+     * ✅
+     * */
+    @GetMapping("/confirm")
+    @ApiOperation("接单")
+    public Result confirm(@RequestBody OrdersConfirmDTO ordersConfirmDTO){
         log.info("确认订单");
         orderService.confirm(ordersConfirmDTO);
+        return Result.success();
+    }
+
+    /**
+     * 派送订单
+     * */
+    @PutMapping("/delivery/{id}")
+    @ApiOperation("派送订单")
+    public Result delivery(@PathVariable("id") Long id){
+        orderService.delivery(id);
         return Result.success();
     }
 

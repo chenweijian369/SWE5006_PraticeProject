@@ -13,6 +13,7 @@ import com.nus.entity.OrderDetail;
 import com.nus.entity.Orders;
 import com.nus.entity.ShoppingCart;
 import com.nus.exception.AddressBookBusinessException;
+import com.nus.exception.OrderBusinessException;
 import com.nus.exception.ShoppingCartBusinessException;
 import com.nus.mapper.AddressMapper;
 import com.nus.mapper.OrderDetailMapper;
@@ -63,6 +64,9 @@ public class OrderServiceImpl implements OrderService {
 //        BeanUtils.copyProperties(ordersSubmitDTO, orders);
 //    }
 
+    /**
+     * The customer place/submit an order
+     * **/
     @Override
     public OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO) {
 
@@ -110,18 +114,18 @@ public class OrderServiceImpl implements OrderService {
        return orderSubmitVO;
     }
 
-    @Override
-    public OrderVO checkOrderDetail(Long id) {
-        List<OrderDetail> orderDetails = orderDetailMapper.queryByOrderId(id);
-        OrderVO orderVO = new OrderVO();
-        orderVO.setOrderDetailList(orderDetails);
-        String dishes = "";
-        for (OrderDetail od : orderDetails) {
-            dishes = od.getName() + "\n";
-        }
-        orderVO.setOrderDishes(dishes);
-        return orderVO;
-    }
+//    @Override
+//    public OrderVO checkOrderDetail(Long id) {
+//        List<OrderDetail> orderDetails = orderDetailMapper.queryByOrderId(id);
+//        OrderVO orderVO = new OrderVO();
+//        orderVO.setOrderDetailList(orderDetails);
+//        String dishes = "";
+//        for (OrderDetail od : orderDetails) {
+//            dishes = od.getName() + "\n";
+//        }
+//        orderVO.setOrderDishes(dishes);
+//        return orderVO;
+//    }
 
 
     /**
@@ -151,6 +155,23 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.update(orders);
     }
 
+    /**
+     * Query Order Detail
+     *
+     * */
+    @Override
+    public OrderVO details(Long id){
+        Orders orders = orderMapper.getById(id);
+
+        // Query order detail
+        List<OrderDetail> orderDetailList = orderDetailMapper.queryByOrderId(id);
+
+        OrderVO orderVO = new OrderVO();
+        BeanUtils.copyProperties(orders,orderVO);
+        orderVO.setOrderDetailList(orderDetailList);
+        return orderVO;
+    }
+
     @Override
     public PageResult conditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO) {
         PageHelper.startPage(ordersPageQueryDTO.getPage(), ordersPageQueryDTO.getPageSize());
@@ -162,9 +183,30 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void confirm(OrdersConfirmDTO ordersConfirmDTO) {
-        Long id = ordersConfirmDTO.getId();
-        Integer status = ordersConfirmDTO.getStatus();
-        orderMapper.confirmOrder(id, status);
+        Orders orders = Orders.builder()
+                .id(ordersConfirmDTO.getId())
+                .status(Orders.CONFIRMED)
+                .build();
+        orderMapper.update(orders);
+    }
+
+    /**
+     * 派送订单
+     * */
+    @Override
+    public void delivery(Long id) {
+       Orders ordersDB = orderMapper.getById(id);
+
+       if(ordersDB == null || !ordersDB.getStatus().equals(Orders.CONFIRMED)){
+           throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+       }
+
+        Orders orders = new Orders();
+        orders.setId(ordersDB.getId());
+        // 更新订单状态,状态转为派送中
+        orders.setStatus(Orders.DELIVERY_IN_PROGRESS);
+
+        orderMapper.update(orders);
     }
 
     private List<OrderVO> GetOrderDetails(Page<Orders> page) {
