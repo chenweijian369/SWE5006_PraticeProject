@@ -20,3 +20,24 @@ nus:
     access-key-id: LTAI5tRKoNHSqkbNDqa3MHK9
     access-key-secret: FIr9UbMesUAeHcq4rlZSLYTMT3JEIn
     bucket-name: chefimage
+  alipay:
+    # 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
+    APPID: 9021000130602585
+    # 商户私钥，您的PKCS8格式RSA2私钥
+    RSA_PRIVATE_KEY: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDwHX7xjfl6dD40++Kc2SBKUYYE8hUXwSQQuLqJMpsL/gxXDGWFvT2iC9TTHmQFud+gdZ0ejELh8szJRF9/ahyZV1QTqn0hQFVFHb0AhoaQiX3uJxeQNNk4ggwPmqRvZVkPHwi8+I9XMAqLsrQbWIRRly1WiPZ6VpDuFbCNtegKTMZPuDEITp5vPLoQx2poKMixN3QfcdInhjogmsITz3YbEetWyscKGzJviQoJLxliSOqUd3Yqc3Ky9HHReeZDs0o2RqCMlqTprcv0ffamfvysyJOboaBBny0JD3E0iAKsyy5tvw2UknLYhochgDI1F9tgUPHx+W9UTPOgtdXrB7TVAgMBAAECggEAAsq1ASX/cpcLah5Lojs8DuEnx8Lwz9flDXS4ZoP6HYeUqSZxv75Vix7MGLBPxWlF2l3Dt+k1ld721pg+7AJV1sqXJatjzREsbKNN4UWvJtsSZcR6l6ilpeyNK1lG9CyffneD6H6TXBYo6TrosTC0SSaS1mC9TOrYwIvsA5nL2uLH3338HQYaAIXZ/OOKROq1669wDqAEjU+yRzQtbDh1w1lru+mMI+Cd6PoR6usQeHkeio6czdcagVK6zazB+ATfToiOgjlf4AlLozlJHPnsbpfmFynY5SAicDCff1DFDEkhGBGi8ENwM0FKvTfwuBdCtAE7CXdoeXrFVdgnK7PyeQKBgQD6CEQnNxScbGfnkMQ/5tM9Z9c08mHk4A2V9LnFpjWw4in5GCRVRAuYvU7/UD3GMyU+wgQx1U2rhdAJppILaIcai85vJKHTF+HUfte4yXdc6iTLJH1z9QvWkPmfU6Atyc38ZTfUgINwc+F2mEo91jR0Rsggp/W+4smiq3ZLmiLozwKBgQD12KKIeHYiuaRF0iULcY0IIUbM7eB/T3NnZYK1EkJtQ+5NLWv4WaDOPf3w241qL0bxI11O7mAeYc8H8py4U9W8S8Z1Ad1E6kOtX9aBo5GQzfOC5rNFgU+e7VBhsHAbwVVswmdN8P4OQTQvRcp4DkPkUqtoPG0zKzcdr4p0MPApGwKBgQCeA99ekTbbbL91303HvM8/fYLKmWw4w0iSvqkxOkuwUB6KqDE+GdTiYLGuNT31JpmhQeh4vf9qKRVDJBwkTZkks7pxD0ueJve33bnjtJ9U/zzljVgjkng60ECR6r3Ocj1WB3nzOIzY4sNYugIhdmCMI7eSu9NZIeaggZAvU2hAjQKBgFjAQzS3IBa7I+WczojKDlrQAIo8md375bJ+/+e0VsyxSFcOPbsjSB0MXh9Uc0HRHXAyDx5Oid6N+rpoyFD22uMmC9fzu1iEpbfyMDMOxJ8c6nroI/HEk+TQ0ULi+iXa7qbbq4WEqYKl4VvrewNKSxIjEgQIRHfDcxtBYt89R4XfAoGAdanMSvlHQHxVFnE3zWcptFb6SoAsBDZLdkPOISW2TEZe3+TX0dDslTbiif80yia0E1RMwkHY6NVSWD12Gl0tAOoPE2A7kxfxJpJaX/PfrfZBoy85FRRCEri3zsr8zxi9pDlHTx6t+R3gRRdgKdC3mBxmF4qQDAPpXeWEdcUa6iU=
+    # 支付宝支付公钥
+    ALIPAY_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhzfWaLV6feIx940OEJD58leQe/j2Bd1eleqo6aD/m+jrEzCa7lzrpp4NaH3idhc4mSWe31bpFRGghQCTBnY4Lklfxanr0cZjXM7sdu/1b/CVJbcUzmYkX8sZF6edZAx6iwkgxWujIBWMbT7LxuVZzlVemGAyJWb2VjohWShwA0p5zHY7a6mNYYbP85kQ5QBsNd0TdSNX3W2jgi1bBf5uIpK09o1umi6JFLpAvFJJuyKjly4nSDKmj6T2qbWeKzjN7i4Q4EJ9AAAPYjfKXnJCzGlW+fWzVA39VUCYZdN98ZboGgRN1OCybq/ybBz8dgYHKumIfB+M54zG+jFi5vcArwIDAQAB
+    # 异步回调地址 必须外网能够访问（这里需要配置内网穿透），当支付成功后会调用该API
+    notify_url: http://hpzekg.natappfree.cc/alipay/pay/callback
+    # 同步回调地址 必须外网能够访问
+    return_url:
+    # 网关（注意沙箱网关和正式网关的区别，这里填写沙箱环境下的网关）
+    URL: https://openapi.alipaydev.com/gateway.do
+    # 编码
+    CHARSET: UTF-8
+    # 返回数据格式
+    FORMAT: json
+    # 日志地址
+    log_path: /log
+    # RSA2
+    SIGNTYPE: RSA2
