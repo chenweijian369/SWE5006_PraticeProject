@@ -1,5 +1,6 @@
 package com.nus.mapper;
 
+import com.nus.dto.OrdersSubmitDTO;
 import com.nus.entity.Address;
 import org.apache.ibatis.annotations.*;
 
@@ -10,6 +11,9 @@ public interface AddressMapper {
 
     @Select("select * from address where user_id = #{userId}")
     List<Address> getByUserId(Long userId);
+
+    @Select("select * from address where id = #{id}")
+    Address getById(Long id);
 
     @Insert("insert into address (user_id, consignee, sex, phone, postal_code, detail_location, label, is_default) " +
             "values (#{userId}, #{consignee}, #{sex}, #{phone}, #{postalCode}, #{detailLocation}, #{label}, #{isDefault})")
@@ -28,4 +32,5 @@ public interface AddressMapper {
 
     @Update("update address set label = #{label} where id = #{id}")
     void updateLabel(Address address);
+
 }

@@ -24,11 +24,11 @@
     <delete id="cancelOrder">
         delete from order_detail
         <where>
-            order_id = #{order_id}
+            order_id = #{orderId}
         </where>
     </delete>
 
     <select id="checkOrderDetail" resultType="com.nus.entity.OrderDetail">
-        select * from order_detail where order_id = #{order_id}
+        select * from order_detail where order_id = #{orderId}
     </select>
 </mapper>

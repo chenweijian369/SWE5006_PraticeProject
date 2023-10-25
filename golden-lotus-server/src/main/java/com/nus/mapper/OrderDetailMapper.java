@@ -18,9 +18,9 @@ public interface OrderDetailMapper {
     @Select("select * from order_detail where dish_id= #{id}")
     List<OrderDetail> queryByDishId(Long id);
 
-    void cancelOrder(Long order_id);
+    void cancelOrder(Long orderId);
 
-   List<OrderDetail> checkOrderDetail(Long order_id);
+   List<OrderDetail> checkOrderDetail(Long orderId);
 
 
 }

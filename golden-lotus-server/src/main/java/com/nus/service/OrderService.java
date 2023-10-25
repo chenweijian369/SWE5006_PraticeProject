@@ -14,8 +14,9 @@ import com.nus.vo.OrderVO;
  * */
 
 public interface OrderService {
-//    OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO);
+    OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO);
 //
+
 //    OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exception;
 
 
@@ -23,9 +24,10 @@ public interface OrderService {
 
 //    PageResult checkHistoryOrders(OrdersPageQueryDTO ordersPageQueryDTO);
 
+
     OrderVO checkOrderDetail(Long id);
 
-    void cancelOrder(Long id);
+    void cancelOrder(OrdersCancelDTO ordersCancelDTO) throws Exception;
 //
 //    void orderAgain(Long id);
 
@@ -35,7 +37,7 @@ public interface OrderService {
 //
 //    void rejectionOrders(OrdersRejectionDTO ordersRejectionDTO) throws Exception;
 //
-//    void confirm(OrdersConfirmDTO ordersConfirmDTO);
+    void confirm(OrdersConfirmDTO ordersConfirmDTO);
 //
 //    void delivery(Long id);
 //
