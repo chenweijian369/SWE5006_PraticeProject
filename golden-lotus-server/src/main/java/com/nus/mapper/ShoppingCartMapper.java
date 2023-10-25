@@ -9,6 +9,9 @@ import java.util.List;
 @Mapper
 public interface ShoppingCartMapper {
 
+    /**
+     *
+     */
     ShoppingCart findDishInCart(ShoppingCartDTO shoppingCartDTO,Long userId);
 
     @Update("update shopping_cart set number = #{number}, amount = #{amount} where id = #{id}")

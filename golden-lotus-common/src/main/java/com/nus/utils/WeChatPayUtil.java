@@ -214,7 +214,7 @@ public class WeChatPayUtil {
      * @param total         原订单金额
      * @return
      */
-    public String refund(String outTradeNo, String outRefundNo, BigDecimal refund, BigDecimal total) throws Exception {
+    public static String refund(String outTradeNo, String outRefundNo, BigDecimal refund, BigDecimal total) throws Exception {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("out_trade_no", outTradeNo);
         jsonObject.put("out_refund_no", outRefundNo);

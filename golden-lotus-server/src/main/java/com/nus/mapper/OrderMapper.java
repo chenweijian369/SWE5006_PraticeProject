@@ -10,5 +10,18 @@ import org.apache.ibatis.annotations.Mapper;
 public interface OrderMapper {
     Page<Orders> queryConditionSearchOrders(OrdersPageQueryDTO ordersPageQueryDTO);
 
+    /**
+     * Insert order into table orders
+     * @param orders
+     * */
+    void insert(Orders orders);
     void cancelOrder(Long id);
+
+    Orders getById(Long id);
+    void confirmOrder(Long id, Integer status);
+
+    /**
+     * Modify the information of orders
+     * */
+    void update(Orders orders);
 }

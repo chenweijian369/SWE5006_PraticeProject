@@ -51,12 +51,23 @@ public class OrderController {
 //         return Result.success();
 //    }
 
-    @PostMapping("/cancelOrderById")
-    public Result cancelOrderById(Long id){
+    /**
+     * 取消订单
+     * @Return Result
+     * */
+    @GetMapping("/cancelOrderById")
+    @ApiOperation("取消订单")
+    public Result cancelOrder(@RequestBody OrdersCancelDTO ordersCancelDTO) throws Exception {
         log.info("取消订单");
-        orderService.cancelOrder(id);
+        orderService.cancelOrder(ordersCancelDTO);
         return Result.success();
-        
+    }
+
+    @GetMapping("/confirmOrderById")
+    public Result confirmOrderById(OrdersConfirmDTO ordersConfirmDTO){
+        log.info("确认订单");
+        orderService.confirm(ordersConfirmDTO);
+        return Result.success();
     }
 
 }

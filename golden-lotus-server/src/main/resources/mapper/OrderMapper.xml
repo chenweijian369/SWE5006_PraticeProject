@@ -11,10 +11,46 @@
         address,user_name,consignee,delivery_time
     </sql>
 
+    <insert id="insert" parameterType="com.nus.entity.Orders" useGeneratedKeys="true" keyProperty="id">
+        insert into orders (id,address,address_book_id,amount,checkout_time,consignee,
+        delivery_time,number,order_time,phone,remark,status,user_id,user_name)
+        values
+        (#{id}, #{address}, #{addressBookId}, #{addressBookId}, #{amount}, #{checkoutTime}, #{consignee},
+        #{deliveryTime},#{number}, #{orderTime}, #{phone}, #{remark}, #{status}, #{userId}, #{userName})
+    </insert>
+
+    <update id="confirmOrder" >
+       update orders
+        <set>
+            <if test="status != null">
+                status = #{status}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="update" parameterType="com.nus.entity.Orders">
+        update orders
+        <set>
+            <if test="payMethod != null">
+                pay_method=#{payMethod},
+            </if>
+            <if test="checkoutTime != null">
+                checkout_time=#{checkoutTime},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="deliveryTime != null">
+                delivery_time = #{deliveryTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
     <delete id="cancelOrder">
-        delete from orders <where>
-             id = #{id}
-    </where>
+        delete from orders where id = #{id}
+
     </delete>
 
     <select id="queryConditionSearchOrders" resultType="com.nus.entity.Orders">
@@ -35,6 +71,9 @@
     </where>
     </select>
 
+    <select id="getById" resultType="com.nus.entity.Orders">
+        select * from orders where id = #{id}
+    </select>
 
 
 
