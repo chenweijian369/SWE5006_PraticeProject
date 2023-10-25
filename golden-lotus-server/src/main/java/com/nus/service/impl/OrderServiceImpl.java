@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderVO> getOrderDetails(Long userId) {
+    public List<OrderVO> getOrderDetailsByUserId(Long userId) {
         List<Order> orderList = orderMapper.getByUserId(userId);
         List<OrderVO> orderVOList = new ArrayList<>();
         for (Order order : orderList) {
@@ -95,5 +95,24 @@ public class OrderServiceImpl implements OrderService {
             orderVOList.add(orderVO);
         }
         return orderVOList;
+    }
+
+    @Override
+    public List<OrderVO> getOrderDetailsByChefId(Long chefId) {
+        List<Order> orderList = orderMapper.getByChefId(chefId);
+        List<OrderVO> orderVOList = new ArrayList<>();
+        for (Order order : orderList) {
+            List<OrderDetail> orderDetails = orderDetailMapper.getByOrderIdAndChefId(order.getId(), chefId);
+            OrderVO orderVO = new OrderVO();
+            BeanUtils.copyProperties(order, orderVO);
+            orderVO.setOrderDetailList(orderDetails);
+            orderVOList.add(orderVO);
+        }
+        return orderVOList;
+    }
+
+    @Override
+    public void completeOrder(Long id) {
+        orderMapper.completeOrderById(id);
     }
 }

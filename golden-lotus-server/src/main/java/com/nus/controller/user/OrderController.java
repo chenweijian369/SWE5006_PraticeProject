@@ -44,7 +44,7 @@ public class OrderController {
     @ApiOperation("check order details")
     public Result<List<OrderVO>> showOrderDetailsByUserId(@PathVariable("userId") Long userId) {
         log.info("show order details");
-        List<OrderVO> list = orderService.getOrderDetails(userId);
+        List<OrderVO> list = orderService.getOrderDetailsByUserId(userId);
         return Result.success(list);
     }
 }

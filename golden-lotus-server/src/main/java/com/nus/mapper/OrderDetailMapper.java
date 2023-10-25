@@ -12,4 +12,7 @@ public interface OrderDetailMapper {
 
     @Select("select * from order_detail where order_id = #{orderId}")
     List<OrderDetail> getByOrderId(Long orderId);
+
+    @Select("select * from order_detail where order_id = #{orderId} and chef_id = #{chefId}")
+    List<OrderDetail> getByOrderIdAndChefId(Long orderId, Long chefId);
 }
