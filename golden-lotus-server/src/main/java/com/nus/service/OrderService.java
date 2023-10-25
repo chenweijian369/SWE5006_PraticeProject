@@ -14,7 +14,7 @@ import com.nus.vo.OrderVO;
  * */
 
 public interface OrderService {
-    OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO);
+    OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO);
 //
 
 
@@ -42,6 +42,8 @@ public interface OrderService {
     void confirm(OrdersConfirmDTO ordersConfirmDTO);
 //
     void delivery(Long id);
+
+    void userCancelById(Long id) throws Exception;
 //
 //    void complete(Long id);
 //

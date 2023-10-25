@@ -66,52 +66,52 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * The customer place/submit an order
-     * **/
+     **/
     @Override
-    public OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO) {
+    public OrderSubmitVO submitOrder(OrdersSubmitDTO ordersSubmitDTO) {
 
         Address address = addressMapper.getById(ordersSubmitDTO.getAddressBookId());
-        if(address == null){
+        if (address == null) {
             throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
 
         Long userId = BaseContext.getCurrentId();
 
         // If address exists, then query the information of shopping cart
-       List<ShoppingCart> shoppingCartList = shoppingCartMapper.getByUserId(userId);
-       if(shoppingCartList == null || shoppingCartList.size() == 0){
-           throw new ShoppingCartBusinessException(MessageConstant.SHOPPING_CART_IS_NULL);
-       }
+        List<ShoppingCart> shoppingCartList = shoppingCartMapper.getByUserId(userId);
+        if (shoppingCartList == null || shoppingCartList.size() == 0) {
+            throw new ShoppingCartBusinessException(MessageConstant.SHOPPING_CART_IS_NULL);
+        }
 
-       Orders orders = new Orders();
-       BeanUtils.copyProperties(ordersSubmitDTO,orders);
-       orders.setOrderTime(LocalDateTime.now());
-       orders.setPayStatus(Orders.UN_PAID);
-       orders.setStatus(Orders.PENDING_PAYMENT);
-       orders.setAddress(address.getDetailLocation());
-       orders.setPhone(address.getPhone());
-       orders.setUserId(userId);
-       orders.setConsignee(address.getConsignee());
-       orders.setNumber(String.valueOf(System.currentTimeMillis()));
+        Orders orders = new Orders();
+        BeanUtils.copyProperties(ordersSubmitDTO, orders);
+        orders.setOrderTime(LocalDateTime.now());
+        orders.setPayStatus(Orders.UN_PAID);
+        orders.setStatus(Orders.PENDING_PAYMENT);
+        orders.setAddress(address.getDetailLocation());
+        orders.setPhone(address.getPhone());
+        orders.setUserId(userId);
+        orders.setConsignee(address.getConsignee());
+        orders.setNumber(String.valueOf(System.currentTimeMillis()));
 
-       orderMapper.insert(orders);
+        orderMapper.insert(orders);
 
-       List<OrderDetail> orderDetailList = new ArrayList<>();
-       for (ShoppingCart cart:shoppingCartList){
-           OrderDetail orderDetail = new OrderDetail();
-           BeanUtils.copyProperties(cart,orderDetail);
-           orderDetail.setOrderId(orders.getId());
-           orderDetailList.add(orderDetail);
-       }
-       orderDetailMapper.insertDetailList(orderDetailList);
-       shoppingCartMapper.deleteById(userId);
-       OrderSubmitVO orderSubmitVO = OrderSubmitVO.builder()
-               .id(orders.getId())
-               .orderTime(orders.getOrderTime())
-               .orderNumber(orders.getNumber())
-               .orderAmount(orders.getAmount())
-               .build();
-       return orderSubmitVO;
+        List<OrderDetail> orderDetailList = new ArrayList<>();
+        for (ShoppingCart cart : shoppingCartList) {
+            OrderDetail orderDetail = new OrderDetail();
+            BeanUtils.copyProperties(cart, orderDetail);
+            orderDetail.setOrderId(orders.getId());
+            orderDetailList.add(orderDetail);
+        }
+        orderDetailMapper.insertDetailList(orderDetailList);
+        shoppingCartMapper.deleteById(userId);
+        OrderSubmitVO orderSubmitVO = OrderSubmitVO.builder()
+                .id(orders.getId())
+                .orderTime(orders.getOrderTime())
+                .orderNumber(orders.getNumber())
+                .orderAmount(orders.getAmount())
+                .build();
+        return orderSubmitVO;
     }
 
 //    @Override
@@ -157,17 +157,16 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * Query Order Detail
-     *
-     * */
+     */
     @Override
-    public OrderVO details(Long id){
+    public OrderVO details(Long id) {
         Orders orders = orderMapper.getById(id);
 
         // Query order detail
         List<OrderDetail> orderDetailList = orderDetailMapper.queryByOrderId(id);
 
         OrderVO orderVO = new OrderVO();
-        BeanUtils.copyProperties(orders,orderVO);
+        BeanUtils.copyProperties(orders, orderVO);
         orderVO.setOrderDetailList(orderDetailList);
         return orderVO;
     }
@@ -192,20 +191,60 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 派送订单
-     * */
+     */
     @Override
     public void delivery(Long id) {
-       Orders ordersDB = orderMapper.getById(id);
+        Orders ordersDB = orderMapper.getById(id);
 
-       if(ordersDB == null || !ordersDB.getStatus().equals(Orders.CONFIRMED)){
-           throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
-       }
+        if (ordersDB == null || !ordersDB.getStatus().equals(Orders.CONFIRMED)) {
+            throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+        }
 
         Orders orders = new Orders();
         orders.setId(ordersDB.getId());
         // 更新订单状态,状态转为派送中
         orders.setStatus(Orders.DELIVERY_IN_PROGRESS);
 
+        orderMapper.update(orders);
+    }
+
+
+    /**
+     * 用户取消订单
+     */
+    @Override
+    public void userCancelById(Long id) throws Exception {
+        Orders ordersDB = orderMapper.getById(id);
+
+        if (ordersDB == null) {
+            throw new OrderBusinessException(MessageConstant.ORDER_NOT_FOUND);
+        }
+
+        //订单状态 1待付款 2待接单 3已接单 4派送中 5已完成 6已取消
+        if (ordersDB.getStatus() > 2) {
+            throw new OrderBusinessException(MessageConstant.ORDER_STATUS_ERROR);
+        }
+
+        Orders orders = new Orders();
+        orders.setId(ordersDB.getId());
+
+//        // 订单处于待接单状态下取消，需要进行退款
+//        if (ordersDB.getStatus().equals(Orders.TO_BE_CONFIRMED)) {
+//            //调用微信支付退款接口
+//            WeChatPayUtil.refund(
+//                    ordersDB.getNumber(), //商户订单号
+//                    ordersDB.getNumber(), //商户退款单号
+//                    new BigDecimal(0.01),//退款金额，单位 元
+//                    new BigDecimal(0.01));//原订单金额
+//
+//            //支付状态修改为 退款
+//            orders.setPayStatus(Orders.REFUND);
+//        }
+
+        // 更新订单状态、取消原因、取消时间
+        orders.setStatus(Orders.CANCELLED);
+        orders.setCancelReason("用户取消");
+        orders.setCancelTime(LocalDateTime.now());
         orderMapper.update(orders);
     }
 
