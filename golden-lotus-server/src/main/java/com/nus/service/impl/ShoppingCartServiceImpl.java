@@ -41,6 +41,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
         // If the dish is existed, then add the number
         if (cart != null){
+            if (map.isEmpty()){
+                map.put(cart.getDishId(), cart.getAmount() / cart.getNumber());
+            }
             cart.setNumber(cart.getNumber() + 1);
             cart.setAmount(map.get(cart.getDishId()) * cart.getNumber());
             shoppingCartMapper.updateById(cart.getId(), cart.getNumber(), cart.getAmount());
@@ -98,7 +101,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
      */
     @Override
     public List<ShoppingCart> showAll() {
-        return shoppingCartMapper.getByUserId(BaseContext.getCurrentId());
+        List<ShoppingCart> list = shoppingCartMapper.getByUserId(BaseContext.getCurrentId());
+
+        return list;
     }
 
     /**

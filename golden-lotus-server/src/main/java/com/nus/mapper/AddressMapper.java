@@ -28,4 +28,7 @@ public interface AddressMapper {
 
     @Update("update address set label = #{label} where id = #{id}")
     void updateLabel(Address address);
+
+    @Select("select * from address where id = #{id}")
+    Address getById(Long id);
 }

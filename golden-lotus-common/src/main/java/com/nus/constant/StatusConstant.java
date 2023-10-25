@@ -1,13 +1,10 @@
 package com.nus.constant;
 
-/**
- * 状态常量，启用或者禁用
- */
 public class StatusConstant {
 
-    //启用
+    // enable
     public static final Integer ENABLE = 1;
 
-    //禁用
+    //disable
     public static final Integer DISABLE = 0;
 }
