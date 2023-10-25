@@ -17,6 +17,7 @@ public interface OrderService {
     OrderSubmitVO orderSubmit(OrdersSubmitDTO ordersSubmitDTO);
 //
 
+
 //    OrderPaymentVO payment(OrdersPaymentDTO ordersPaymentDTO) throws Exception;
 
 
@@ -25,7 +26,8 @@ public interface OrderService {
 //    PageResult checkHistoryOrders(OrdersPageQueryDTO ordersPageQueryDTO);
 
 
-    OrderVO checkOrderDetail(Long id);
+
+    OrderVO details(Long id);
 
     void cancelOrder(OrdersCancelDTO ordersCancelDTO) throws Exception;
 //
@@ -39,7 +41,7 @@ public interface OrderService {
 //
     void confirm(OrdersConfirmDTO ordersConfirmDTO);
 //
-//    void delivery(Long id);
+    void delivery(Long id);
 //
 //    void complete(Long id);
 //
