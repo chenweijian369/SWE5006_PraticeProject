@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+spring:
+#  profiles:
+#    active: dev
+#  main:
+#    allow-circular-references: true
+
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      server-addr: 192.168.150.101:8848
+    gateway:
+      routes:
+        - id: admin-service
+          uri: lb://golden-lotus-admin-service
+          predicates:
+            -Path=/golden-lotus-admin-service/**
+        - id: chef-service
+          uri: lb://golden-lotus-chef-service
+          predicates:
+            -Path=/golden-lotus-chef-service/**
+
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.nus.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      nus:
+        mapper: debug
+        service: info
+        controller: info
+
+nus:
+  jwt:
+    secret-key: nusissse
+    ttl: 72000000
+    token-name: token
+
