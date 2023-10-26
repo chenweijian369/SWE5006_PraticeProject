@@ -1,7 +1,7 @@
 package com.nus.service;
 
-import com.nus.dto.AddressDTO;
-import com.nus.entity.Address;
+import com.nus.pojo.dto.AddressDTO;
+import com.nus.pojo.entity.Address;
 
 import java.util.List;
 

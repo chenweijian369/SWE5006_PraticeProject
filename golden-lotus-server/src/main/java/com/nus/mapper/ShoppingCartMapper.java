@@ -1,7 +1,7 @@
 package com.nus.mapper;
 
-import com.nus.dto.ShoppingCartDTO;
-import com.nus.entity.ShoppingCart;
+import com.nus.pojo.dto.ShoppingCartDTO;
+import com.nus.pojo.entity.ShoppingCart;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

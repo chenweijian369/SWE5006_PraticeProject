@@ -1,10 +1,9 @@
 package com.nus.mapper;
 
 import com.github.pagehelper.Page;
-import com.nus.annotation.AutoFill;
-import com.nus.dto.DishPageDTO;
-import com.nus.entity.Dish;
-import com.nus.vo.DishVO;
+import com.nus.pojo.dto.DishPageDTO;
+import com.nus.pojo.entity.Dish;
+import com.nus.pojo.vo.DishVO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

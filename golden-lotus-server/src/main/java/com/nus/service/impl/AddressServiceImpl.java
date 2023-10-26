@@ -1,8 +1,8 @@
 package com.nus.service.impl;
 
 import com.nus.context.BaseContext;
-import com.nus.dto.AddressDTO;
-import com.nus.entity.Address;
+import com.nus.pojo.dto.AddressDTO;
+import com.nus.pojo.entity.Address;
 import com.nus.mapper.AddressMapper;
 import com.nus.service.AddressService;
 import org.springframework.beans.BeanUtils;

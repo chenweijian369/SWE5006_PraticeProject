@@ -1,7 +1,7 @@
 package com.nus.service;
 
-import com.nus.dto.UserDTO;
-import com.nus.vo.ChefVO;
+import com.nus.pojo.dto.UserDTO;
+import com.nus.pojo.vo.ChefVO;
 
 import java.util.List;
 

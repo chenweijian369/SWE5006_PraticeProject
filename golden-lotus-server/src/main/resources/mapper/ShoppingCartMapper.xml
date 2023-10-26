@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nus.mapper.ShoppingCartMapper">
-    <select id="findDishInCart" resultType="com.nus.entity.ShoppingCart">
+    <select id="findDishInCart" resultType="com.nus.pojo.entity.ShoppingCart">
         select * from shopping_cart
         <where>
             <if test="userId != null">

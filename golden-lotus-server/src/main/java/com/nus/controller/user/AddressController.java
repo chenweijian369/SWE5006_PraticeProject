@@ -1,7 +1,7 @@
 package com.nus.controller.user;
 
-import com.nus.dto.AddressDTO;
-import com.nus.entity.Address;
+import com.nus.pojo.dto.AddressDTO;
+import com.nus.pojo.entity.Address;
 import com.nus.result.Result;
 import com.nus.service.AddressService;
 import io.swagger.annotations.Api;

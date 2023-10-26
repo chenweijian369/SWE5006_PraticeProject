@@ -1,9 +1,9 @@
 package com.nus.controller.user;
 
-import com.nus.dto.UserDTO;
+import com.nus.pojo.dto.UserDTO;
 import com.nus.result.Result;
 import com.nus.service.UserService;
-import com.nus.vo.ChefVO;
+import com.nus.pojo.vo.ChefVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

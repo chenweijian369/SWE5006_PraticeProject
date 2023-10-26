@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.nus.mapper.ChefMapper">
-    <update id="update" parameterType="com.nus.entity.Chef">
+    <update id="update" parameterType="com.nus.pojo.entity.Chef">
         update chef
         <set>
             <if test="name != null">
@@ -64,7 +64,7 @@
         where id = #{id}
     </update>
 
-    <select id="pageQuery" resultType="com.nus.entity.Chef">
+    <select id="pageQuery" resultType="com.nus.pojo.entity.Chef">
         select * from chef
         <where>
             <if test="name != null and name !=''">

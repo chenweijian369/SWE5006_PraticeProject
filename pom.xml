@@ -14,8 +14,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>golden-lotus-common</module>
-        <module>golden-lotus-pojo</module>
         <module>golden-lotus-server</module>
+        <module>golden-lotus-user-search</module>
     </modules>
     <properties>
         <mybatis.spring>2.2.0</mybatis.spring>

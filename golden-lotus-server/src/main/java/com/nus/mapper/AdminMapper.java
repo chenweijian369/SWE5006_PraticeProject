@@ -1,6 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.entity.Admin;
+import com.nus.pojo.entity.Admin;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

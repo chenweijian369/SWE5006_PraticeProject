@@ -1,7 +1,7 @@
 package com.nus.service;
 
-import com.nus.dto.OrderSubmitDTO;
-import com.nus.vo.OrderVO;
+import com.nus.pojo.dto.OrderSubmitDTO;
+import com.nus.pojo.vo.OrderVO;
 
 import java.util.List;
 

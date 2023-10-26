@@ -1,10 +1,10 @@
 package com.nus.mapper;
 
 import com.github.pagehelper.Page;
-import com.nus.dto.ChefPageDTO;
-import com.nus.entity.Chef;
-import com.nus.entity.People;
-import com.nus.vo.ChefVO;
+import com.nus.pojo.dto.ChefPageDTO;
+import com.nus.pojo.entity.Chef;
+import com.nus.pojo.entity.People;
+import com.nus.pojo.vo.ChefVO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

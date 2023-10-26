@@ -1,8 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.annotation.AutoFill;
-import com.nus.entity.User;
-import com.nus.enumeration.OperationType;
+import com.nus.pojo.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

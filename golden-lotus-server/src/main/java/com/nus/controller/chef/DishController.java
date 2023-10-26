@@ -1,20 +1,17 @@
 package com.nus.controller.chef;
 
-import com.nus.context.BaseContext;
-import com.nus.dto.DishDTO;
-import com.nus.dto.DishPageDTO;
+import com.nus.pojo.dto.DishDTO;
+import com.nus.pojo.dto.DishPageDTO;
 import com.nus.result.PageResult;
 import com.nus.result.Result;
 import com.nus.service.DishService;
-import com.nus.vo.DishVO;
+import com.nus.pojo.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Set;
 
 @RestController("chefDishController")
 @RequestMapping("/chef/dish")

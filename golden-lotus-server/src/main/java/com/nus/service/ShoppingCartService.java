@@ -1,7 +1,7 @@
 package com.nus.service;
 
-import com.nus.dto.ShoppingCartDTO;
-import com.nus.entity.ShoppingCart;
+import com.nus.pojo.dto.ShoppingCartDTO;
+import com.nus.pojo.entity.ShoppingCart;
 
 import java.util.List;
 

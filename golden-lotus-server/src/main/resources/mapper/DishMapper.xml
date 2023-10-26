@@ -11,7 +11,7 @@
         </where>
     </select>
 
-    <update id="update" parameterType="Dish">
+    <update id="update" parameterType="com.nus.pojo.entity.Dish">
         update dish
         <set>
             <if test="name != null and name != ''">
@@ -41,7 +41,7 @@
         where id = #{id}
     </update>
 
-    <select id="pageQuery" resultType="com.nus.vo.DishVO">
+    <select id="pageQuery" resultType="com.nus.pojo.vo.DishVO">
         select * from dish
         <where>
             <if test="chefId != null">

@@ -1,18 +1,14 @@
 package com.nus.controller.chef;
 
-import com.nus.dto.ChefAccountDTO;
-import com.nus.entity.Chef;
+import com.nus.pojo.dto.ChefAccountDTO;
+import com.nus.pojo.entity.Chef;
 import com.nus.result.Result;
-import com.nus.service.CategoryService;
 import com.nus.service.ChefService;
-import com.nus.vo.CategoryVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController("chefController")
 @RequestMapping("/chef/chefInfo")

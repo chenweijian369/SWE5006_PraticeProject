@@ -1,6 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.entity.ChefCategory;
+import com.nus.pojo.entity.ChefCategory;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

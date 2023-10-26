@@ -2,7 +2,7 @@ package com.nus.controller.chef;
 
 import com.nus.result.Result;
 import com.nus.service.OrderService;
-import com.nus.vo.OrderVO;
+import com.nus.pojo.vo.OrderVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

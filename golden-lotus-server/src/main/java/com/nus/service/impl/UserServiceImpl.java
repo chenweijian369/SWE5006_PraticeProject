@@ -1,13 +1,13 @@
 package com.nus.service.impl;
 
-import com.nus.dto.UserDTO;
-import com.nus.entity.Chef;
-import com.nus.entity.User;
+import com.nus.pojo.dto.UserDTO;
+import com.nus.pojo.entity.Chef;
+import com.nus.pojo.entity.User;
 import com.nus.mapper.ChefMapper;
 import com.nus.mapper.DishMapper;
 import com.nus.mapper.UserMapper;
 import com.nus.service.UserService;
-import com.nus.vo.ChefVO;
+import com.nus.pojo.vo.ChefVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

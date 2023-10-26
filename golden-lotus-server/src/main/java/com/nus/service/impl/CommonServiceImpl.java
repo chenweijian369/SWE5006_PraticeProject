@@ -2,22 +2,17 @@ package com.nus.service.impl;
 
 import com.nus.constant.LoginConstant;
 import com.nus.constant.MessageConstant;
-import com.nus.dto.AccountLoginDTO;
-import com.nus.dto.UserDTO;
-import com.nus.entity.People;
-import com.nus.entity.User;
+import com.nus.pojo.dto.AccountLoginDTO;
+import com.nus.pojo.entity.People;
 import com.nus.exception.AccountNotFoundException;
 import com.nus.exception.PasswordErrorException;
 import com.nus.mapper.AdminMapper;
 import com.nus.mapper.ChefMapper;
 import com.nus.mapper.UserMapper;
 import com.nus.service.CommonService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
-
-import java.time.LocalDateTime;
 
 @Service
 public class CommonServiceImpl implements CommonService {

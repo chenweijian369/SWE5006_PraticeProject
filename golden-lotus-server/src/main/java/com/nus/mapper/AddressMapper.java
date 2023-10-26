@@ -1,6 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.entity.Address;
+import com.nus.pojo.entity.Address;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.nus.controller.admin;
 
-import com.nus.dto.ChefDTO;
-import com.nus.dto.ChefPageDTO;
-import com.nus.entity.Chef;
+import com.nus.pojo.dto.ChefDTO;
+import com.nus.pojo.dto.ChefPageDTO;
+import com.nus.pojo.entity.Chef;
 import com.nus.result.PageResult;
 import com.nus.result.Result;
 import com.nus.service.ChefService;

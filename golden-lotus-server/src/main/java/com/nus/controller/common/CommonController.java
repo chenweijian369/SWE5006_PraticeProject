@@ -1,12 +1,12 @@
 package com.nus.controller.common;
 
-import com.nus.dto.AccountLoginDTO;
-import com.nus.entity.People;
+import com.nus.pojo.dto.AccountLoginDTO;
+import com.nus.pojo.entity.People;
 import com.nus.properties.JwtProperties;
 import com.nus.result.Result;
 import com.nus.service.CommonService;
 import com.nus.utils.JwtUtil;
-import com.nus.vo.AccountLoginVO;
+import com.nus.pojo.vo.AccountLoginVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.nus.controller.user;
 
-import com.nus.dto.ShoppingCartDTO;
-import com.nus.entity.ShoppingCart;
+import com.nus.pojo.dto.ShoppingCartDTO;
+import com.nus.pojo.entity.ShoppingCart;
 import com.nus.result.Result;
 import com.nus.service.ShoppingCartService;
 import io.swagger.annotations.Api;

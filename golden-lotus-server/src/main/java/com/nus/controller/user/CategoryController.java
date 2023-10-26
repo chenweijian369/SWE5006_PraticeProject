@@ -1,9 +1,8 @@
 package com.nus.controller.user;
 
-import com.nus.entity.Category;
 import com.nus.result.Result;
 import com.nus.service.CategoryService;
-import com.nus.vo.CategoryVO;
+import com.nus.pojo.vo.CategoryVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

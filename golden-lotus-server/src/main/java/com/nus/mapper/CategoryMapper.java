@@ -1,6 +1,6 @@
 package com.nus.mapper;
 
-import com.nus.vo.CategoryVO;
+import com.nus.pojo.vo.CategoryVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

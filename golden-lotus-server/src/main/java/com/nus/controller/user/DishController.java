@@ -2,7 +2,7 @@ package com.nus.controller.user;
 
 import com.nus.result.Result;
 import com.nus.service.DishService;
-import com.nus.vo.DishVO;
+import com.nus.pojo.vo.DishVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;

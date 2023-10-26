@@ -1,11 +1,11 @@
 package com.nus.service;
 
-import com.nus.dto.ChefAccountDTO;
-import com.nus.dto.ChefDTO;
-import com.nus.dto.ChefPageDTO;
-import com.nus.entity.Chef;
+import com.nus.pojo.dto.ChefAccountDTO;
+import com.nus.pojo.dto.ChefDTO;
+import com.nus.pojo.dto.ChefPageDTO;
+import com.nus.pojo.entity.Chef;
 import com.nus.result.PageResult;
-import com.nus.vo.ChefVO;
+import com.nus.pojo.vo.ChefVO;
 
 import java.util.List;
 

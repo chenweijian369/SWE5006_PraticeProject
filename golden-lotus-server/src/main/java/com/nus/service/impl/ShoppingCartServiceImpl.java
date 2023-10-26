@@ -1,10 +1,10 @@
 package com.nus.service.impl;
 
 import com.nus.context.BaseContext;
-import com.nus.dto.ShoppingCartDTO;
-import com.nus.entity.Chef;
-import com.nus.entity.Dish;
-import com.nus.entity.ShoppingCart;
+import com.nus.pojo.dto.ShoppingCartDTO;
+import com.nus.pojo.entity.Chef;
+import com.nus.pojo.entity.Dish;
+import com.nus.pojo.entity.ShoppingCart;
 import com.nus.mapper.ChefMapper;
 import com.nus.mapper.DishMapper;
 import com.nus.mapper.ShoppingCartMapper;

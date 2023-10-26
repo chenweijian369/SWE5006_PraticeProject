@@ -1,6 +1,6 @@
 package com.nus.service;
 
-import com.nus.vo.CategoryVO;
+import com.nus.pojo.vo.CategoryVO;
 
 import java.util.List;
 

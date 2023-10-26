@@ -1,9 +1,9 @@
 package com.nus.service;
 
-import com.nus.dto.DishDTO;
-import com.nus.dto.DishPageDTO;
+import com.nus.pojo.dto.DishDTO;
+import com.nus.pojo.dto.DishPageDTO;
 import com.nus.result.PageResult;
-import com.nus.vo.DishVO;
+import com.nus.pojo.vo.DishVO;
 
 import java.util.List;
 
