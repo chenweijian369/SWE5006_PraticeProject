@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nus.mapper.ShoppingCartMapper">
+    <select id="findDishInCart" resultType="com.nus.pojo.entity.ShoppingCart">
+        select * from shopping_cart
+        <where>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+
+            <if test="shoppingCartDTO.dishId != null">
+                and dish_id = #{shoppingCartDTO.dishId}
+            </if>
+
+            <if test="shoppingCartDTO.chefId != null">
+                and chef_id = #{shoppingCartDTO.chefId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,50 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${nus.datasource.driver-class-name}
+      url: jdbc:mysql://${nus.datasource.host}:${nus.datasource.port}/${nus.datasource.database}?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${nus.datasource.username}
+      password: ${nus.datasource.password}
+  redis:
+    host: ${nus.redis.host}
+    port: ${nus.redis.port}
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.nus.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      nus:
+        mapper: debug
+        service: info
+        controller: info
+
+nus:
+  jwt:
+    secret-key: nusissse
+    ttl: 72000000
+    token-name: token
+
+  wechat:
+    appid: ${nus.wechat.appid}
+    secret: ${nus.wechat.secret}
+
+  alioss:
+    endpoint: ${nus.alioss.endpoint}
+    access-key-id: ${nus.alioss.access-key-id}
+    access-key-secret: ${nus.alioss.access-key-secret}
+    bucket-name: ${nus.alioss.bucket-name}
+

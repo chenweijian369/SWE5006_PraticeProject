@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nus.mapper.AddressMapper">
+    <update id="update" parameterType="com.nus.pojo.entity.Address">
+        update address
+        <set>
+            <if test="consignee != null and consignee != ''">
+                consignee = #{consignee},
+            </if>
+
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+
+            <if test="postalCode != null and postalCode != ''">
+                postal_code = #{postalCode},
+            </if>
+
+            <if test="detailLocation != null and detailLocation != ''">
+                detail_location = #{detailLocation},
+            </if>
+
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

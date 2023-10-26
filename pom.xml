@@ -16,6 +16,13 @@
         <module>golden-lotus-common</module>
         <module>golden-lotus-server</module>
         <module>golden-lotus-user-search</module>
+        <module>golden-lotus-user-address</module>
+        <module>golden-lotus-user-order</module>
+        <module>golden-lotus-user-cart</module>
+        <module>golden-lotus-admin-service</module>
+        <module>golden-lotus-chef-service</module>
+        <module>golden-lotus-common-service</module>
+        <module>golden-lotus-user-register</module>
     </modules>
     <properties>
         <mybatis.spring>2.2.0</mybatis.spring>

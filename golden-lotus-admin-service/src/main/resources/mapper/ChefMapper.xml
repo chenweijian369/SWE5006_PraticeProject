@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nus.mapper.ChefMapper">
+    <update id="update" parameterType="com.nus.pojo.entity.Chef">
+        update chef
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+
+            <if test="username != null">
+                username = #{username},
+            </if>
+
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+
+            <if test="idNumber != null">
+                id_number = #{idNumber},
+            </if>
+
+            <if test="image != null and image != ''">
+                image = #{image},
+            </if>
+
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+
+            <if test="isOccupied != null">
+                is_occupied = #{isOccupied},
+            </if>
+
+            <if test="status != null">
+                status = #{status},
+            </if>
+
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+
+            <if test="createUser != null">
+                create_user = #{createUser},
+            </if>
+
+            <if test="updateUser != null">
+                update_user = #{updateUser},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="pageQuery" resultType="com.nus.pojo.entity.Chef">
+        select * from chef
+        <where>
+            <if test="name != null and name !=''">
+                and name like concat('%',#{name},'%')
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>

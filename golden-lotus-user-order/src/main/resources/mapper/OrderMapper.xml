@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nus.mapper.OrderMapper">
+    <insert id="insert" parameterType="com.nus.pojo.entity.Order" useGeneratedKeys="true" keyProperty="id">
+        insert into `order`(address,address_id,amount,consignee,create_time,
+                             delivery_time,number,phone,remark,status,user_id)
+        values
+            (#{address}, #{addressId}, #{amount}, #{consignee}, #{createTime},
+             #{deliveryTime},#{number}, #{phone}, #{remark}, #{status}, #{userId})
+    </insert>
+</mapper>

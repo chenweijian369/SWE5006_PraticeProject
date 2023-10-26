@@ -1,0 +1,22 @@
+nus:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 13.229.213.160
+    port: 50000
+    database: goldenLotus
+    username: root
+    password: Golden_lotusmysql
+
+  redis:
+    host: localhost
+    port: 6379
+
+  wechat:
+    appid: wx8e163d873747ccb0
+    secret: 8cb5add0fe5481ceee88212f65363d90
+
+  alioss:
+    endpoint: oss-ap-southeast-1.aliyuncs.com
+    access-key-id: LTAI5tRKoNHSqkbNDqa3MHK9
+    access-key-secret: FIr9UbMesUAeHcq4rlZSLYTMT3JEIn
+    bucket-name: chefimage
