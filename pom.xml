@@ -23,6 +23,7 @@
         <module>golden-lotus-chef-service</module>
         <module>golden-lotus-common-service</module>
         <module>golden-lotus-user-register</module>
+        <module>golden-lotus-gateway1</module>
     </modules>
     <properties>
         <mybatis.spring>2.2.0</mybatis.spring>
