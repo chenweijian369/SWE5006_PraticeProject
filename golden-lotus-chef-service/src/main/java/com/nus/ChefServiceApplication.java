@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement //开启注解方式的事务管理
 @Slf4j
 @EnableCaching
-public class UserRegister {
+public class ChefServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(UserRegister.class, args);
-        log.info("user search server started");
+        SpringApplication.run(ChefServiceApplication.class, args);
+        log.info("server started");
     }
 }

@@ -92,7 +92,7 @@ public class ChefServiceImpl implements ChefService {
     public void classifyChefCategoryById(Long categoryId) {
         List<ChefCategory> list = chefCategoryMapper.getByChefIdAndCategoryId(BaseContext.getCurrentId(), categoryId);
 
-        if (list != null){
+        if (!list.isEmpty()){
             return;
         }
 

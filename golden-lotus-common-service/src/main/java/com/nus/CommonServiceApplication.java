@@ -10,9 +10,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement //开启注解方式的事务管理
 @Slf4j
 @EnableCaching
-public class CommonService {
+public class CommonServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CommonService.class, args);
+        SpringApplication.run(CommonServiceApplication.class, args);
         log.info("server started");
     }
 }

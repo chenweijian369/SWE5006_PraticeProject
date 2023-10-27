@@ -41,7 +41,7 @@ public class CategoryController {
      * @param categoryId
      * @return
      */
-    @PostMapping("/category/add")
+    @PostMapping("/add")
     @ApiOperation(value = "chef set category of himself")
     public Result<String> classifyChef(Long categoryId){
         log.info("Chef classifying himself");
@@ -54,7 +54,7 @@ public class CategoryController {
      * @param id
      * @return
      */
-    @DeleteMapping("/category/delete")
+    @DeleteMapping("/delete")
     @ApiOperation(value = "chef delete category of himself")
     public Result<String> deleteClassification(Long id){
         log.info("Chef deleting classification of himself");
