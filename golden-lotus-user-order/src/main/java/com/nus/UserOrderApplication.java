@@ -13,6 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class UserOrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserOrderApplication.class, args);
-        log.info("user search server started");
+        log.info("user order server started");
     }
 }
