@@ -14,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Slf4j
+@CrossOrigin
 @Api(tags = "User Relevant Interface")
 public class UserController {
 

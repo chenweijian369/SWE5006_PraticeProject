@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user/shoppingcart")
 @Slf4j
+@CrossOrigin
 @Api(tags = "ShoppingCart Relevant Interface")
 public class ShoppingCartController {
     @Autowired

@@ -15,6 +15,7 @@ import java.util.List;
 @RestController("userOrderController")
 @RequestMapping("/user/order")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Order Relevant interface")
 public class OrderController {
 

@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user/address")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Address Relevant Interface")
 public class AddressController {
     @Autowired
