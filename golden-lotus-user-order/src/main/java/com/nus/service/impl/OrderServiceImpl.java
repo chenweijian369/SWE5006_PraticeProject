@@ -2,6 +2,7 @@ package com.nus.service.impl;
 
 import com.nus.constant.MessageConstant;
 import com.nus.constant.OrderStatus;
+import com.nus.context.BaseContext;
 import com.nus.exception.AddressBookBusinessException;
 import com.nus.exception.ShoppingCartBusinessException;
 import com.nus.mapper.AddressMapper;
@@ -50,7 +51,7 @@ public class OrderServiceImpl implements OrderService {
             throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
 
-        Long userId = 1L;
+        Long userId = BaseContext.getCurrentId();
 
         // If address exists, then query the information of shopping cart
         List<ShoppingCart> shoppingCartList = shoppingCartMapper.getByUserId(userId);
