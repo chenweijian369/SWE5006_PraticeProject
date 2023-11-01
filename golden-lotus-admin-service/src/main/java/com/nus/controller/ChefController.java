@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController("adminChefController")
 @RequestMapping("/admin/employee")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Chef Relevant Interface")
 public class ChefController {
 

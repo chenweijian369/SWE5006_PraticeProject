@@ -15,6 +15,7 @@ import java.util.List;
 @RestController("chefCategoryController")
 @RequestMapping("/chef/category")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Category Relevant Interface")
 public class CategoryController {
 

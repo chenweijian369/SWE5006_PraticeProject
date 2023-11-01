@@ -1,7 +1,7 @@
 nus:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: 13.229.213.160
+    host: 3.0.137.211
     port: 50000
     database: goldenLotus
     username: root

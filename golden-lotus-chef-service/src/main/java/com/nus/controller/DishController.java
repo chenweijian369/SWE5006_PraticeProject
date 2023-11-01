@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController("chefDishController")
 @RequestMapping("/chef/dish")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Dish Relevant Interface")
 public class DishController {
 

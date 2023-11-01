@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController("chefController")
 @RequestMapping("/chef/chefInfo")
 @Slf4j
+@CrossOrigin
 @Api(tags = "Chef Relevant Controller")
 public class ChefController {
 
