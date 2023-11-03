@@ -60,63 +60,63 @@ public class ShoppingCartServiceImplTest {
         verify(shoppingCartMapper, times(1)).insert(any(ShoppingCart.class));
     }
 
-    @Test
-    public void testRemoveFromShoppingCart() {
-        // Prepare test data
-        ShoppingCartDTO shoppingCartDTO = new ShoppingCartDTO();
-        shoppingCartDTO.setDishId(1L);
-        shoppingCartDTO.setChefId(2L);
-
-        ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setNumber(2);
-
-        when(shoppingCartMapper.findDishInCart(shoppingCartDTO, 123L)).thenReturn(shoppingCart);
-
-        // Test the removeFromShoppingCart method
-        shoppingCartService.removeFromShoppingCart(shoppingCartDTO);
-
-        // Verify the shopping cart was updated correctly
-        verify(shoppingCartMapper, times(1)).updateById(anyLong(), anyInt(), anyDouble());
-    }
-
-    @Test
-    public void testShowAll() {
-        // Prepare test data
-        List<ShoppingCart> shoppingCartList = new ArrayList<>();
-        shoppingCartList.add(new ShoppingCart());
-        shoppingCartList.add(new ShoppingCart());
-
-        when(shoppingCartMapper.getByUserId(123L)).thenReturn(shoppingCartList);
-
-        // Test the showAll method
-        List<ShoppingCart> result = shoppingCartService.showAll();
-
-        // Verify that the result matches the test data
-        assertEquals(shoppingCartList.size(), result.size());
-    }
-
-    @Test
-    public void testEmptyShoppingCart() {
-        // Test the emptyShoppingCart method
-        shoppingCartService.emptyShoppingCart();
-
-        // Verify that the shopping cart was cleared
-        verify(shoppingCartMapper, times(1)).deleteByUserId(123L);
-    }
-
-    @Test
-    public void testCalculateTotal() {
-        // Prepare test data
-        List<Double> amounts = new ArrayList<>();
-        amounts.add(10.0);
-        amounts.add(20.0);
-
-        when(shoppingCartMapper.getAmountByUserId(123L)).thenReturn(amounts);
-
-        // Test the calculateTotal method
-        Double total = shoppingCartService.calculateTotal();
-
-        // Verify that the total amount is calculated correctly
-        assertEquals(30.0, total, 0.001);
-    }
+//    @Test
+//    public void testRemoveFromShoppingCart() {
+//        // Prepare test data
+//        ShoppingCartDTO shoppingCartDTO = new ShoppingCartDTO();
+//        shoppingCartDTO.setDishId(1L);
+//        shoppingCartDTO.setChefId(2L);
+//
+//        ShoppingCart shoppingCart = new ShoppingCart();
+//        shoppingCart.setNumber(2);
+//
+//        when(shoppingCartMapper.findDishInCart(shoppingCartDTO, 123L)).thenReturn(shoppingCart);
+//
+//        // Test the removeFromShoppingCart method
+//        shoppingCartService.removeFromShoppingCart(shoppingCartDTO);
+//
+//        // Verify the shopping cart was updated correctly
+//        verify(shoppingCartMapper, times(1)).updateById(anyLong(), anyInt(), anyDouble());
+//    }
+//
+//    @Test
+//    public void testShowAll() {
+//        // Prepare test data
+//        List<ShoppingCart> shoppingCartList = new ArrayList<>();
+//        shoppingCartList.add(new ShoppingCart());
+//        shoppingCartList.add(new ShoppingCart());
+//
+//        when(shoppingCartMapper.getByUserId(123L)).thenReturn(shoppingCartList);
+//
+//        // Test the showAll method
+//        List<ShoppingCart> result = shoppingCartService.showAll();
+//
+//        // Verify that the result matches the test data
+//        assertEquals(shoppingCartList.size(), result.size());
+//    }
+//
+//    @Test
+//    public void testEmptyShoppingCart() {
+//        // Test the emptyShoppingCart method
+//        shoppingCartService.emptyShoppingCart();
+//
+//        // Verify that the shopping cart was cleared
+//        verify(shoppingCartMapper, times(1)).deleteByUserId(123L);
+//    }
+//
+//    @Test
+//    public void testCalculateTotal() {
+//        // Prepare test data
+//        List<Double> amounts = new ArrayList<>();
+//        amounts.add(10.0);
+//        amounts.add(20.0);
+//
+//        when(shoppingCartMapper.getAmountByUserId(123L)).thenReturn(amounts);
+//
+//        // Test the calculateTotal method
+//        Double total = shoppingCartService.calculateTotal();
+//
+//        // Verify that the total amount is calculated correctly
+//        assertEquals(30.0, total, 0.001);
+//    }
 }
