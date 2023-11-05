@@ -18,7 +18,9 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
 public class ShoppingCartServiceImplTest {
 
@@ -69,5 +71,4 @@ public class ShoppingCartServiceImplTest {
 
         verify(shoppingCartMapper, times(1)).deleteByUserId(BaseContext.getCurrentId());
     }
-
 }
